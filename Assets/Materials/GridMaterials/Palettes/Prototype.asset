@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c88a6fb448b624d819cb70a88ff875, type: 3}
+  m_Name: Prototype
+  m_EditorClassIdentifier: 
+  gridCellMaterial: {fileID: 2100000, guid: dedd449684aad5a40aea59a960d99a6e, type: 2}
+  gridCellOutOfRangeMaterial: {fileID: 2100000, guid: 723564a7bfd0db749b92c4d4313564a6,
+    type: 2}
+  gridCellHoverMaterial: {fileID: 2100000, guid: ea2df6baac77acc4ca13a1af2db61cc0,
+    type: 2}
+  gridCellHoverInvalidMaterial: {fileID: 2100000, guid: 8f10ac0ce0f5012498309f1f6fbe26ca,
+    type: 2}
+  gridCellPathMaterial: {fileID: 2100000, guid: cd1e4a66a8bc38143999ccfa514345ad,
+    type: 2}
+  gridCellSelectedMaterial: {fileID: 2100000, guid: a9ef9a32323dd3b4f8ca3f7458a322e7,
+    type: 2}
+  gridCellAttackSelectedMaterial: {fileID: 2100000, guid: 42998ca5f63274d4aa13a0c32de9047b,
+    type: 2}
+  gridCellAttackHoverMaterial: {fileID: 2100000, guid: 10e51859bc473ad4ba4b471cc94488e7,
+    type: 2}
+  gridCellAttackMaterial: {fileID: 2100000, guid: 2224d62b50fb7dd4289ea3f35f8e0d19,
+    type: 2}
