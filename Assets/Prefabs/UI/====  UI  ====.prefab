@@ -460,7 +460,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 10
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1523,7 +1523,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1900,7 +1900,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -3680,7 +3680,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -4796,7 +4796,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -5476,6 +5476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651782042342264241}
   - component: {fileID: 651782042342264246}
+  - component: {fileID: 2302441000820814910}
   - component: {fileID: 651782042342264247}
   m_Layer: 0
   m_Name: ====  UI  ====
@@ -5518,29 +5519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9233e790d6181d3429d81d5810a72944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: {fileID: 651782040928973349}
-  attack: {fileID: 651782042190385308}
-  range: {fileID: 651782040999393233}
-  information: {fileID: 430421242}
-  portrait: {fileID: 651782040493148010}
-  endTurn: {fileID: 651782042544009379}
-  attackButton: {fileID: 5082103590996330505}
-  healthBarObj: {fileID: 651782042342264247}
-  ObjectiveCanvas: {fileID: 651782040967885620}
-  settingsScreenUI: {fileID: 3774359113191360440}
-  mainObjectiveText: {fileID: 651782040947666688}
-  fastForward: {fileID: 7684965984232381054}
-  images:
-  - {fileID: 21300000, guid: a4b7b457bc2c58b4986440a52ecd4b73, type: 3}
-  - {fileID: 21300000, guid: 2b786145a2715a74e873396d38e53a8c, type: 3}
-  - {fileID: 21300000, guid: 3a85f45efc942dd4a8c79ed15105a4e6, type: 3}
-  - {fileID: 21300000, guid: 81a7d410ee8b25643b02e6ebca9f0076, type: 3}
-  - {fileID: 21300000, guid: ed33a987ee225b542ab4c4c3ad5ddbd5, type: 3}
-  - {fileID: 21300000, guid: eba181cb1aa034547a4943e464543ac1, type: 3}
-  toolbar: []
-  slotHolder: {fileID: 2287576778130162776, guid: d9fcdd9dfd2746f429484d92477f960e,
-    type: 3}
-  toolbarHolder: {fileID: 651782042430137670}
+  interfaceObjects: {fileID: 2302441000820814910}
   pauseMenu: {fileID: 651782042019087970}
   statisticsHolder: {fileID: 651782040707391125}
   canvases:
@@ -5549,12 +5528,53 @@ MonoBehaviour:
   - {fileID: 651782040947666690}
   isSkirmishMode: 0
   isEndlessMode: 0
-  skirmishSettings: {fileID: 0}
-  objectiveText: {fileID: 4576529371095925711}
-  outpostGridParent: {fileID: 8549485430158222689}
-  outpostIndicatorObj: {fileID: 3318981022720437184, guid: 3e8c304c3c9b2524095ae48a7e1ae9e1,
-    type: 3}
   levelIndex: 0
+--- !u!114 &2302441000820814910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651782042342264240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460b93d8f3bc53d4cba98875261f2443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HUDtitle: {fileID: 651782040928973349}
+  HUDattack: {fileID: 651782042190385308}
+  HUDrange: {fileID: 651782040999393233}
+  HUDinformation: {fileID: 430421242}
+  HUDportrait: {fileID: 651782040493148010}
+  HUDEndTurn: {fileID: 651782042544009379}
+  HUDEnterAttackButton: {fileID: 5082103590996330505}
+  healthBar: {fileID: 651782042342264247}
+  ObjectiveCanvasObj: {fileID: 651782040967885620}
+  settingsScreen: {fileID: 3774359113191360440}
+  objectiveTitle: {fileID: 651782040947666688}
+  fastForwardButton: {fileID: 7684965984232381054}
+  imageList:
+  - {fileID: 21300000, guid: a4b7b457bc2c58b4986440a52ecd4b73, type: 3}
+  - {fileID: 21300000, guid: 2b786145a2715a74e873396d38e53a8c, type: 3}
+  - {fileID: 21300000, guid: 3a85f45efc942dd4a8c79ed15105a4e6, type: 3}
+  - {fileID: 21300000, guid: 81a7d410ee8b25643b02e6ebca9f0076, type: 3}
+  - {fileID: 21300000, guid: ed33a987ee225b542ab4c4c3ad5ddbd5, type: 3}
+  - {fileID: 21300000, guid: eba181cb1aa034547a4943e464543ac1, type: 3}
+  toolbarList: []
+  slot: {fileID: 2287576778130162776, guid: d9fcdd9dfd2746f429484d92477f960e, type: 3}
+  toolbarObject: {fileID: 651782042430137670}
+  pauseMenu: {fileID: 651782042019087970}
+  statisticsHolder: {fileID: 651782040707391125}
+  canvases:
+  - {fileID: 651782041761751391}
+  - {fileID: 3832224421390754700}
+  - {fileID: 651782040947666690}
+  skirmishSettingsObject: {fileID: 0}
+  currentGameMode: 0
+  killObjectiveText: {fileID: 4576529371095925711}
+  outpostParentObj: {fileID: 8549485430158222689}
+  outpostIndicator: {fileID: 3318981022720437184, guid: 3e8c304c3c9b2524095ae48a7e1ae9e1,
+    type: 3}
 --- !u!114 &651782042342264247
 MonoBehaviour:
   m_ObjectHideFlags: 0
