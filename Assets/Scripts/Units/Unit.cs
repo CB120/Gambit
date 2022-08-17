@@ -333,6 +333,11 @@ public class Unit : MonoBehaviour
         return currentCell.GetCellsInRange(attackRange);
     }
 
+    public virtual List<CellInfo> GetAttackCells()
+    {
+        return new List<CellInfo>(); //DON'T RELY ON THIS, OVERRIDE
+    }
+
     public bool CanUseMovePoints (int ap) { //Returns true if the given value is <= this Unit's movePoints
         return ap <= movePoints;
     }
