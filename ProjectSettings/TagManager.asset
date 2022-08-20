@@ -23,6 +23,7 @@ TagManager:
   - OutpostController
   - Timer
   - Camera Parent
+  - PauseObject
   layers:
   - Default
   - TransparentFX

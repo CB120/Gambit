@@ -70,7 +70,7 @@ public class CastleAI : MonoBehaviour
     {
         smokePS.gameObject.SetActive(false);
         firePS.gameObject.SetActive(false);
-        UIManager.enableGameResultState(false);
+        UIManager.EndGame(false);
     }
 
     public bool CatapultInCastleRange(Unit Catapult)

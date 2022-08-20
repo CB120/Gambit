@@ -31,6 +31,8 @@ public class UIObjects : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject statisticsHolder;
     public GameObject[] canvases;
+    public PauseManager pauseManager;
+
 
     [Header("Game Modes")]
     public GameObject skirmishSettingsObject;

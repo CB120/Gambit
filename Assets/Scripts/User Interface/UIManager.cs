@@ -6,6 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Objects")]
     [SerializeField] private UIObjects interfaceObjects;
     public static UIObjects UIObj;
 
@@ -14,8 +15,6 @@ public class UIManager : MonoBehaviour
     public static bool isPaused = false;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject statisticsHolder;
-    [SerializeField] private GameObject[] canvases;
-    public static bool isOtherStateActive = false;
 
     [Header("Game Modes")]
 
@@ -42,11 +41,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public static void SetOtherState(bool value)
-    {
-        isOtherStateActive = value;
-    }
-
     private void Start()
     {
         transitionAnimator = GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<Animator>();
@@ -56,15 +50,13 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Slash))//We gots to remove dis
         {
-            enableGameResultState(false);
+            EndGame(false);
         }
 
         if (Input.GetButtonDown("Pause"))
         {
-            if (!isOtherStateActive)
-            {
-                Pause();
-            }
+            if(UIObj.pauseManager.PlayerCanPause())
+            Pause();
         }
     }
 
@@ -102,6 +94,7 @@ public class UIManager : MonoBehaviour
 
 
     //=======HUD======
+#region HUD
     public static void SetTurnUI(List<Unit> units, int arrPos)
     {
 
@@ -119,7 +112,9 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region ToolBar
     //=======ToolBar======
     public static void SetUnitDead(List<Unit> units, Unit unit)
     {
@@ -144,9 +139,7 @@ public class UIManager : MonoBehaviour
 
     public static void SetHoverPosition(int toolBarPos, List<Unit> units)
     {
-        //Unit.SetLayerRecursively(units[toolBarPos].gameObject, 14, true);
         UIObj.HUDEnterAttackButton.interactable = true;
-        //HUDEnterAttackButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Movement";
         if (UIObj.toolbarList.Count > 0)//Ensure the list isnt empty
         {
             for (int i = 0; i < units.Count; i++)//For each toolbarSlot
@@ -223,14 +216,13 @@ public class UIManager : MonoBehaviour
         return UIObj.imageList[0];
     }
 
-
-
+    #endregion
+    #region Menus
     /*============
         MENUS
      ============*/
-    public static void enableGameResultState(bool isLoseState)
+    public static void EndGame(bool isLoseState)
     {
-        isOtherStateActive = true;
         NewCameraMovement.JumpToCenter();
         if (isLoseState)
         {
@@ -276,7 +268,6 @@ public class UIManager : MonoBehaviour
     {
         UIObj.skirmishSettingsObject.GetComponent<ProceduralSettings>().pcgController.GenerateRandomMap();
         transitionAnimator.SetTrigger("RestartGame");
-        isOtherStateActive = false;
     }
 
     public void OnSkirmishWin()
@@ -284,8 +275,6 @@ public class UIManager : MonoBehaviour
         UIObj.skirmishSettingsObject.SetActive(true);
         transitionAnimator.SetTrigger("RestartGame");
         UIObj.skirmishSettingsObject.GetComponent<Animator>().SetTrigger("LevelWon");
-
-
     }
 
 
@@ -299,8 +288,8 @@ public class UIManager : MonoBehaviour
             statisticsHolder.SetActive(false);
             UIObj.toolbarObject.SetActive(false);
             UIObj.HUDEndTurn.gameObject.SetActive(false);
-            foreach (GameObject canvas in canvases) canvas.SetActive(false);
-            Time.timeScale = 0;
+            foreach (GameObject canvas in UIObj.canvases) canvas.SetActive(false);
+            //Time.timeScale = 0;
         }
         else //Disable Menu & Enable HUD
         {
@@ -310,7 +299,7 @@ public class UIManager : MonoBehaviour
             statisticsHolder.SetActive(true);
             UIObj.toolbarObject.SetActive(true);
             UIObj.HUDEndTurn.gameObject.SetActive(true);
-            foreach (GameObject canvas in canvases) canvas.SetActive(true);
+            foreach (GameObject canvas in UIObj.canvases) canvas.SetActive(true);
             Time.timeScale = 1;
         }
     }
@@ -342,6 +331,9 @@ public class UIManager : MonoBehaviour
             SetHoverPosition(PlayerParticipant.selectedUnit, unit.ownerParticipant.GetComponent<PlayerParticipant>().units);
         }
     }
+    #endregion
+
+    #region Cells
 
     public void ShowAttackCells()
     {
@@ -360,6 +352,7 @@ public class UIManager : MonoBehaviour
         GridController.UpdateGrid();
     }
 
+    #endregion
     public static void ToggleActive(GameObject toggle)
     {
         if (toggle.activeInHierarchy)
