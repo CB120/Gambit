@@ -19,11 +19,6 @@ public class SceneLoader : MonoBehaviour
     }
     
     public static void LoadScene(string name) {
-        if (name == "Level1")
-        {
-            UIManager.isOtherStateActive = false;
-        }
-
         if (Singleton) {
             Singleton.StartLoadSceneAsync(name);
         } else {
