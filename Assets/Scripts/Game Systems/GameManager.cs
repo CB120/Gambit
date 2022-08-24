@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         Participant parentParticipant = unit.ownerParticipant.GetComponent<Participant>();
         if (parentParticipant.units.Count == 0)
         {
-            UIManager.enableGameResultState(!unit.isAIControlled);
+            UIManager.EndGame(!unit.isAIControlled);
             GameObject timer = GameObject.FindWithTag("Timer");
             if(timer) timer.GetComponent<Timer>().AddTimeToPlayerStats();
         }

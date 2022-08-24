@@ -189,7 +189,7 @@ public class GenerateProcedurally : MonoBehaviour
         {
             obj.SetActive(false);
         }
-        UIManager.objectiveTitle.text = gameMode.mainTitle;
+        UIManager.UIObj.objectiveTitle.text = gameMode.mainTitle;
     }
 
     private ChooseGameMode GetGameMode(MapSize mapSize)
@@ -217,7 +217,7 @@ public class GenerateProcedurally : MonoBehaviour
         int mapSize = GetRandomSize();
         if (generateRandomly)
             gameMode = GetGameMode(this.mapSize);
-        UIManager.currentGameMode = this.gameMode.type;
+        UIManager.UIObj.currentGameMode = this.gameMode.type;
         mapGenerator._mapWidth = mapSize;
         mapGenerator._mapHeight = mapSize;
         gridGenerator.width = mapSize;

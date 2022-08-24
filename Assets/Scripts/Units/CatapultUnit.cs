@@ -12,7 +12,7 @@ public class CatapultUnit : Unit
     // Update is called once per frame
     public override void DestroyUnit()
     {
-        UIManager.enableGameResultState(true);
+        UIManager.EndGame(true);
         base.DestroyUnit();
     }
 }

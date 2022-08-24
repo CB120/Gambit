@@ -6,54 +6,15 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("HUD")]
-    [SerializeField] private TextMeshProUGUI title;
-    //[SerializeField] private TextMeshProUGUI health;
-    [SerializeField] private TextMeshProUGUI attack;
-    [SerializeField] private TextMeshProUGUI range;
-    [SerializeField] private TextMeshProUGUI information;
-    [SerializeField] private Image portrait;
-    [SerializeField] private Button endTurn;
-    [SerializeField] private Button attackButton;
-    [SerializeField] private HealthBar healthBarObj;
-    [SerializeField] private GameObject ObjectiveCanvas;
-    [SerializeField] private GameObject settingsScreenUI;
-    [SerializeField] private TextMeshProUGUI mainObjectiveText;
-    [SerializeField] private Button fastForward;
-    public static TextMeshProUGUI HUDtitle;
-    //public static TextMeshProUGUI HUDhealth;
-    public static TextMeshProUGUI HUDattack;
-    public static TextMeshProUGUI HUDrange;
-    public static TextMeshProUGUI HUDinformation;
-    public static Image HUDportrait;
-    public static Button HUDEndTurn;
-    public static Button HUDEnterAttackButton;
-    public static HealthBar healthBar;
-    public static GameObject ObjectiveCanvasObj;
-    public static GameObject settingsScreen;
-    public static TextMeshProUGUI objectiveTitle;
-    public static Button fastForwardButton;
-
-
-    [Header("Tool Bar")]
-    //[SerializeField] private List<Texture2D> images;
-    [SerializeField] private List<Sprite> images;
-    [SerializeField] private List<GameObject> toolbar;
-    [SerializeField] private GameObject slotHolder;
-    [SerializeField] private GameObject toolbarHolder;
-    private static List<Sprite> imageList;
-    private static List<GameObject> toolbarList;
-    private static GameObject slot;
-    private static GameObject toolbarObject;
+    [Header("Objects")]
+    [SerializeField] private UIObjects interfaceObjects;
+    public static UIObjects UIObj;
 
     [Header("Menu")]
     [HideInInspector]
     public static bool isPaused = false;
     [SerializeField] private GameObject pauseMenu;
-    public static GameObject gameLostMenu;
     [SerializeField] private GameObject statisticsHolder;
-    [SerializeField] private GameObject[] canvases;
-    public static bool isOtherStateActive = false;
 
     [Header("Game Modes")]
 
@@ -61,22 +22,7 @@ public class UIManager : MonoBehaviour
     public static bool isSkirmishModeActive = false;
     public bool isEndlessMode = false;
     public static bool isEndlessModeActive = false;
-    [SerializeField] private GameObject skirmishSettings;
-    private static GameObject skirmishSettingsObject;
     public static List<GameObject> deadUnits = new List<GameObject>();
-    [SerializeField] private GameMode gameMode;
-    public static GameMode currentGameMode;
-
-
-    [Header("KillAllEnemies")]
-    [SerializeField] private TextMeshProUGUI objectiveText;
-    private static TextMeshProUGUI killObjectiveText;
-
-    [Header("Outposts")]
-    [SerializeField] private GameObject outpostGridParent;
-    private static GameObject outpostParentObj;
-    [SerializeField] private GameObject outpostIndicatorObj;
-    private static GameObject outpostIndicator;
 
     [Header("Animations")]
     public static Animator transitionAnimator;
@@ -88,42 +34,11 @@ public class UIManager : MonoBehaviour
 
     public void Awake()
     {
-        currentGameMode = gameMode;
-        outpostIndicator = outpostIndicatorObj;
-        outpostParentObj = outpostGridParent;
-        skirmishSettingsObject = skirmishSettings;
+        UIObj = interfaceObjects;
         isSkirmishModeActive = isSkirmishMode;
         isEndlessModeActive = isEndlessMode;
-        //isOtherStateActive = true;
-        //TODO: Convert all of these to an object (Singleton)
-        HUDtitle = title;
-        //HUDhealth = health;
-        HUDinformation = information;
-        HUDattack = attack;
-        HUDrange = range;
-        HUDportrait = portrait;
-        HUDEndTurn = endTurn;
-        HUDEnterAttackButton = attackButton;
-        imageList = images;
-        toolbarList = toolbar;
-        HUDinformation = information;
-        slot = slotHolder;
-        toolbarObject = toolbarHolder;
-        healthBar = healthBarObj;
-        ObjectiveCanvasObj = ObjectiveCanvas;
-        settingsScreen = settingsScreenUI;
-        thisLevelIndex = levelIndex;
-        objectiveTitle = mainObjectiveText;
-        //isKillAllEnemiesMode = isKillAllEnemies;
-        killObjectiveText = objectiveText;
-        fastForwardButton = fastForward;
         Time.timeScale = 1;
 
-    }
-
-    public static void SetOtherState(bool value)
-    {
-        isOtherStateActive = value;
     }
 
     private void Start()
@@ -135,50 +50,51 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Slash))//We gots to remove dis
         {
-            enableGameResultState(false);
+            EndGame(false);
         }
 
         if (Input.GetButtonDown("Pause"))
         {
-            if (!isOtherStateActive)
-            {
-                Pause();
-            }
+            if(UIObj.pauseManager.PlayerCanPause())
+            Pause();
         }
     }
 
     //To Call this write UIManager.SetHUD(parameter), you do not need a reference to the object this is attached to
     public static void SetHUD(Unit selectedUnit)
     {
-        HUDtitle.text = selectedUnit.unitType.ToString();
+        UIObj.HUDtitle.text = selectedUnit.unitType.ToString();
         //HUDhealth.text = selectedUnit.health.ToString() + "/" + selectedUnit.maxHealth.ToString();
-        HUDinformation.text = selectedUnit.informationText;
-        healthBar.SetMaxHealth(selectedUnit.maxHealth);
-        healthBar.SetHealth(selectedUnit.health);
-        HUDattack.text = selectedUnit.damage.ToString();
-        HUDrange.text = selectedUnit.attackRange.ToString() + " UNITS";
-        HUDportrait.sprite = GetImage(selectedUnit);
+        UIObj.HUDinformation.text = selectedUnit.informationText;
+        UIObj.healthBar.SetMaxHealth(selectedUnit.maxHealth);
+        UIObj.healthBar.SetHealth(selectedUnit.health);
+        UIObj.HUDattack.text = selectedUnit.damage.ToString();
+        UIObj.HUDrange.text = selectedUnit.attackRange.ToString() + " UNITS";
+        UIObj.HUDportrait.sprite = GetImage(selectedUnit);
 
     }
 
     public static void SetEnemyObjectiveUnits(int unitCount)
     {
-        killObjectiveText.text = "<color=#FF5D5D>" + unitCount.ToString() + "</color> remaining";
+        Debug.Log(UIObj);
+        Debug.Log(UIObj.killObjectiveText);
+        UIObj.killObjectiveText.text = "<color=#FF5D5D>" + unitCount.ToString() + "</color> remaining";
     }
 
     public static void DamageObjective(float health)
     {
-        HealthBar healthBar = ObjectiveCanvasObj.GetComponent<HealthBar>();
+        HealthBar healthBar = UIObj.ObjectiveCanvasObj.GetComponent<HealthBar>();
         healthBar.SetHealth(health);
     }
 
     public static void SetObjectiveMaxHealth(float health)
     {
-        ObjectiveCanvasObj.GetComponent<HealthBar>().SetMaxHealth(health);
+        UIObj.ObjectiveCanvasObj.GetComponent<HealthBar>().SetMaxHealth(health);
     }
 
 
     //=======HUD======
+#region HUD
     public static void SetTurnUI(List<Unit> units, int arrPos)
     {
 
@@ -196,11 +112,13 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region ToolBar
     //=======ToolBar======
     public static void SetUnitDead(List<Unit> units, Unit unit)
     {
-        GameObject newSlot = Instantiate(slot, toolbarObject.transform);
+        GameObject newSlot = Instantiate(UIObj.slot, UIObj.toolbarObject.transform);
         Color col = new Color(0.6f, 0, 0);
         newSlot.GetComponent<Image>().color = col;
         newSlot.GetComponent<Button>().enabled = false;
@@ -221,10 +139,8 @@ public class UIManager : MonoBehaviour
 
     public static void SetHoverPosition(int toolBarPos, List<Unit> units)
     {
-        //Unit.SetLayerRecursively(units[toolBarPos].gameObject, 14, true);
-        HUDEnterAttackButton.interactable = true;
-        //HUDEnterAttackButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Skip Movement";
-        if (toolbarList.Count > 0)//Ensure the list isnt empty
+        UIObj.HUDEnterAttackButton.interactable = true;
+        if (UIObj.toolbarList.Count > 0)//Ensure the list isnt empty
         {
             for (int i = 0; i < units.Count; i++)//For each toolbarSlot
             {
@@ -234,28 +150,28 @@ public class UIManager : MonoBehaviour
                     disabledColor = units[i].hasAttacked ? new Color(0.14f, 0.14f, 0.14f) : new Color(0.46f, 0.23f, 0); //if the unit is in attack mode, change the disabled color to orange
                 }
 
-                toolbarList[i].GetComponent<Image>().color = disabledColor;//set the color of the toolbar slot
-                toolbarList[i].GetComponentsInChildren<Image>()[1].color = new Color(0.4f, 0.4f, 0.4f); //set the color of the image in the toolbar slot
+                UIObj.toolbarList[i].GetComponent<Image>().color = disabledColor;//set the color of the toolbar slot
+                UIObj.toolbarList[i].GetComponentsInChildren<Image>()[1].color = new Color(0.4f, 0.4f, 0.4f); //set the color of the image in the toolbar slot
             }
             Color selectedColor = new Color(1, 1, 1);//the default selected color (when a player clicks a number to select a unit)
             if (units[toolBarPos].isAttacking)
             {
-                HUDEnterAttackButton.interactable = false;
+                UIObj.HUDEnterAttackButton.interactable = false;
                 //HUDEnterAttackButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Movement Forfeit";
                 selectedColor = units[toolBarPos].hasAttacked ? new Color(0.14f, 0.14f, 0.14f) : new Color(1, 0.54f, 0); //if the selected unit is attacking set color to bright orange
             }
-            toolbarList[toolBarPos].GetComponent<Image>().color = selectedColor;//set the selected toolbars color
-            toolbarList[toolBarPos].GetComponentsInChildren<Image>()[1].color = new Color(1, 1, 1);//set the selected toolbar slots image color
+            UIObj.toolbarList[toolBarPos].GetComponent<Image>().color = selectedColor;//set the selected toolbars color
+            UIObj.toolbarList[toolBarPos].GetComponentsInChildren<Image>()[1].color = new Color(1, 1, 1);//set the selected toolbar slots image color
         }
     }
 
     public static void SetToolBarImage(List<Unit> currentUnits)
     {
-        foreach (GameObject oldSlot in toolbarList)
+        foreach (GameObject oldSlot in UIObj.toolbarList)
         {
             Destroy(oldSlot);
         }
-        toolbarList.Clear();
+        UIObj.toolbarList.Clear();
 
         if (currentUnits.Count == 0) return;
         PlayerParticipant playerParticipant = currentUnits[0].ownerParticipant.GetComponent<PlayerParticipant>();
@@ -264,8 +180,8 @@ public class UIManager : MonoBehaviour
         {
             if (i < currentUnits.Count)
             {
-                GameObject newSlot = Instantiate(slot, toolbarObject.transform);
-                toolbarList.Add(newSlot);
+                GameObject newSlot = Instantiate(UIObj.slot, UIObj.toolbarObject.transform);
+                UIObj.toolbarList.Add(newSlot);
                 Color col = new Color(255, 255, 255, 255);
                 Unit unit = currentUnits[i];
                 newSlot.GetComponentsInChildren<Image>()[1].sprite = GetImage(unit);
@@ -285,29 +201,28 @@ public class UIManager : MonoBehaviour
         switch (unit.unitType)
         {
             case Unit.UnitType.Soldier:
-                return imageList[0];
+                return UIObj.imageList[0];
             case Unit.UnitType.Archer:
-                return imageList[1];
+                return UIObj.imageList[1];
             case Unit.UnitType.Crossbow:
-                return imageList[2];
+                return UIObj.imageList[2];
             case Unit.UnitType.Cavalry:
-                return imageList[3];
+                return UIObj.imageList[3];
             case Unit.UnitType.Catapult:
-                return imageList[4];
+                return UIObj.imageList[4];
             case Unit.UnitType.Mage:
-                return imageList[5];
+                return UIObj.imageList[5];
         }
-        return imageList[0];
+        return UIObj.imageList[0];
     }
 
-
-
+    #endregion
+    #region Menus
     /*============
         MENUS
      ============*/
-    public static void enableGameResultState(bool isLoseState)
+    public static void EndGame(bool isLoseState)
     {
-        isOtherStateActive = true;
         NewCameraMovement.JumpToCenter();
         if (isLoseState)
         {
@@ -321,7 +236,7 @@ public class UIManager : MonoBehaviour
             else if (isEndlessModeActive)
             {
                 Debug.Log("Died On Endless Mode");
-                skirmishSettingsObject.GetComponent<EndlessMode>().Invoke("OnLoseRound", 4.75f);
+                UIObj.skirmishSettingsObject.GetComponent<EndlessMode>().Invoke("OnLoseRound", 4.75f);
             }
 
 
@@ -342,7 +257,7 @@ public class UIManager : MonoBehaviour
             else if (isEndlessModeActive)
             {
                 Debug.Log("Endless Mode Won");
-                skirmishSettingsObject.GetComponent<EndlessMode>().Invoke("OnWinRound", 2f);
+                UIObj.skirmishSettingsObject.GetComponent<EndlessMode>().Invoke("OnWinRound", 2f);
 
             }
         }
@@ -351,18 +266,15 @@ public class UIManager : MonoBehaviour
 
     public void OnSkirmishDeath()
     {
-        skirmishSettingsObject.GetComponent<ProceduralSettings>().pcgController.GenerateRandomMap();
+        UIObj.skirmishSettingsObject.GetComponent<ProceduralSettings>().pcgController.GenerateRandomMap();
         transitionAnimator.SetTrigger("RestartGame");
-        isOtherStateActive = false;
     }
 
     public void OnSkirmishWin()
     {
-        skirmishSettingsObject.SetActive(true);
+        UIObj.skirmishSettingsObject.SetActive(true);
         transitionAnimator.SetTrigger("RestartGame");
-        skirmishSettingsObject.GetComponent<Animator>().SetTrigger("LevelWon");
-
-
+        UIObj.skirmishSettingsObject.GetComponent<Animator>().SetTrigger("LevelWon");
     }
 
 
@@ -374,20 +286,20 @@ public class UIManager : MonoBehaviour
             Camera.main.gameObject.GetComponent<MouseController>().cellSelectionEnabled = false;
             pauseMenu.SetActive(true);
             statisticsHolder.SetActive(false);
-            toolbarObject.SetActive(false);
-            HUDEndTurn.gameObject.SetActive(false);
-            foreach (GameObject canvas in canvases) canvas.SetActive(false);
-            Time.timeScale = 0;
+            UIObj.toolbarObject.SetActive(false);
+            UIObj.HUDEndTurn.gameObject.SetActive(false);
+            foreach (GameObject canvas in UIObj.canvases) canvas.SetActive(false);
+            //Time.timeScale = 0;
         }
         else //Disable Menu & Enable HUD
         {
-            settingsScreenUI.SetActive(false);
+            UIObj.settingsScreen.SetActive(false);
             Camera.main.gameObject.GetComponent<MouseController>().cellSelectionEnabled = true;
             pauseMenu.SetActive(false);
             statisticsHolder.SetActive(true);
-            toolbarObject.SetActive(true);
-            HUDEndTurn.gameObject.SetActive(true);
-            foreach (GameObject canvas in canvases) canvas.SetActive(true);
+            UIObj.toolbarObject.SetActive(true);
+            UIObj.HUDEndTurn.gameObject.SetActive(true);
+            foreach (GameObject canvas in UIObj.canvases) canvas.SetActive(true);
             Time.timeScale = 1;
         }
     }
@@ -398,13 +310,13 @@ public class UIManager : MonoBehaviour
 
         if (participantType.properties.participantType == ParticipantType.LocalPlayer)
         {
-            HUDEndTurn.interactable = true;
-            HUDEndTurn.GetComponentInChildren<TextMeshProUGUI>().text = "END TURN";
+            UIObj.HUDEndTurn.interactable = true;
+            UIObj.HUDEndTurn.GetComponentInChildren<TextMeshProUGUI>().text = "END TURN";
         }
         else if (participantType.properties.participantType == ParticipantType.AI)
         {
-            HUDEndTurn.interactable = false;
-            HUDEndTurn.GetComponentInChildren<TextMeshProUGUI>().text = "ENEMY'S TURN";
+            UIObj.HUDEndTurn.interactable = false;
+            UIObj.HUDEndTurn.GetComponentInChildren<TextMeshProUGUI>().text = "ENEMY'S TURN";
         }
     }
 
@@ -414,11 +326,14 @@ public class UIManager : MonoBehaviour
 
         if (unit)
         {
-            HUDEnterAttackButton.interactable = false;
+            UIObj.HUDEnterAttackButton.interactable = false;
             unit.SkipMovement();
             SetHoverPosition(PlayerParticipant.selectedUnit, unit.ownerParticipant.GetComponent<PlayerParticipant>().units);
         }
     }
+    #endregion
+
+    #region Cells
 
     public void ShowAttackCells()
     {
@@ -437,6 +352,7 @@ public class UIManager : MonoBehaviour
         GridController.UpdateGrid();
     }
 
+    #endregion
     public static void ToggleActive(GameObject toggle)
     {
         if (toggle.activeInHierarchy)
@@ -460,7 +376,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < counter; i++)
         {
-            GameObject indicator = Instantiate(outpostIndicator, outpostParentObj.transform);
+            GameObject indicator = Instantiate(UIObj.outpostIndicator, UIObj.outpostParentObj.transform);
             outPostIndicators.Add(indicator);
         }
 
@@ -488,6 +404,6 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-        if (fastForwardButton) fastForwardButton.interactable = on;
+        if (UIObj.fastForwardButton) UIObj.fastForwardButton.interactable = on;
     }
 }

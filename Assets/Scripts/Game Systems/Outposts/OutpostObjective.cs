@@ -114,7 +114,7 @@ public class OutpostObjective : MonoBehaviour
             if (g.captured == false) return; //if any of them aren't captured, exit the method
         }
 
-        UIManager.enableGameResultState(false); //You win! Yay!
+        UIManager.EndGame(false); //You win! Yay!
     }
 
     void SpawnOutpostDamageText(OutpostGroup outpost, float damageDecrement){

@@ -111,11 +111,8 @@ public class EndlessMode : MonoBehaviour
     
     public void Regenerate()
     {
-        UIManager.isOtherStateActive = false;
         pcgController.GenerateRandomMap();
     }
-
-  
 
     public void PopulateUnits()
     {
