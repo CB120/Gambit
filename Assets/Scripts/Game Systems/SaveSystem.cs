@@ -94,11 +94,12 @@ public class SaveSystem : MonoBehaviour
             
     }
 
-    public static bool getLastLevelUnlocked()
+    public static int GetLatestUnlockedLevel()
     {
         //Get all the levels as an array of chars
+        if (loadedProgress == null) return 1;
         char[] unlockedLevels = loadedProgress.ToCharArray();
-        return isLevelUnlocked(unlockedLevels[unlockedLevels.Length - 1]);
+        return unlockedLevels.Length;
     }
 
     public static string GetActivePlayer()
