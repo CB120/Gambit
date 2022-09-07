@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
             UIManager.EndGame(!unit.isAIControlled);
             GameObject timer = GameObject.FindWithTag("Timer");
             if(timer) timer.GetComponent<Timer>().AddTimeToPlayerStats();
-        } 
+        }
     }
 
 

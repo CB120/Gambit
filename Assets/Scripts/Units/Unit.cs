@@ -239,7 +239,7 @@ public class Unit : MonoBehaviour
             //owningParticipant.GetComponent<AIController>().SpawnAI();//CHRIS COMMENT THIS OUT
         }
 
-        GameManager.GameIsOver(this);//Check if all Units in this participant are dead
+        GameManager.GameIsOver(this); //Check if all Units in this participant are dead
 
         Destroy(gameObject);
     }
