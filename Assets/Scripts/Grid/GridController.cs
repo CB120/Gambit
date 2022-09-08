@@ -112,16 +112,22 @@ public class GridController : MonoBehaviour
     public static void SetForestCells(List<Vector2Int> coordinates){
         for (int i = 0; i < coordinates.Count; i++){
             Vector2Int v = coordinates[i];
-            if (v.x >= 0 && v.y >= 0 && grid.GetLength(0) > v.x && grid.GetLength(1) > v.y) {
-                if (grid[v.x, v.y]){
+            if (v.x >= 0 && v.y >= 0 && grid.GetLength(0) > v.x && grid.GetLength(1) > v.y)
+            {
+                if (grid[v.x, v.y])
+                {
                     grid[v.x, v.y].isForest = true;
-                    grid[v.x, v.y].forestObject = Singleton.mapGenerator.forestObjects[i];
-                } else {
+                    grid[v.x, v.y].forestObject = Singleton.mapGenerator.forestObjects[i]; // If this is coming up with an error, just add random coordinates w/ no object ~ Christian
+                }
+                else
+                {
                     Debug.LogWarning("Cell at (" + v.x + ", " + v.y + ") has gone missing!");
                 }
-            } else {
-                Debug.LogWarning("Received int coordinates (" + v.x + ", " + v.y + ") which are outside the Grid's range.");
             }
+                else
+                {
+                    Debug.LogWarning("Received int coordinates (" + v.x + ", " + v.y + ") which are outside the Grid's range.");
+                }
         }
     }
 
