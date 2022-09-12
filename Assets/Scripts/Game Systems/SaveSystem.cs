@@ -72,6 +72,36 @@ public class SaveSystem : MonoBehaviour
 
     }
 
+    public static bool isLevelUnlocked(int levelIndex)
+    {
+        //Set default return to false
+        bool unlocked = false;
+        //Get all the levels as an array of chars
+        char[] unlockedLevels = loadedProgress.ToCharArray();
+        //Return if an invalid index was given
+        if (levelIndex > unlockedLevels.Length)
+        {
+            Debug.LogError("Error - invalid level Index Given to isLevelUnlocked(int levelIndex) in SaveSystem");
+            return false;
+        }
+        //Search through the array to see if the level is unlocked and set our return value to true if it is
+        for(int i = 0; i < unlockedLevels.Length; i++)
+        {
+            if (i == levelIndex && unlockedLevels[i] == '1')
+                unlocked = true;
+        }
+        return unlocked;
+            
+    }
+
+    public static int GetLatestUnlockedLevel()
+    {
+        //Get all the levels as an array of chars
+        if (loadedProgress == null) return 1;
+        char[] unlockedLevels = loadedProgress.ToCharArray();
+        return unlockedLevels.Length;
+    }
+
     public static string GetActivePlayer()
     {
         if (loadedSaveKey != null || loadedSaveKey != "")
