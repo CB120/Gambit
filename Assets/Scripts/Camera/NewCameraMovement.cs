@@ -77,7 +77,7 @@ public class NewCameraMovement : MonoBehaviour
             if (oldPinchDistance >= 0f)
             {
                 float delta = oldPinchDistance - distance;
-                AdjustZoom(delta * touchscreenPinchMultiplier * -1f);
+                AdjustZoom(delta * touchscreenPinchMultiplier);
             }
 
             oldPinchDistance = distance;
