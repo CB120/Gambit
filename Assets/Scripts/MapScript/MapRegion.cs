@@ -14,6 +14,7 @@ public class MapRegion : MonoBehaviour
     public int unitAmount;
     public int enemyAmount;
     public bool isUnlocked;
+    public string levelName;
     void Start()
     {
         
