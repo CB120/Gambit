@@ -20,12 +20,15 @@ public class NewCameraMovement : MonoBehaviour
 
     [SerializeField] float lerpSpeed = 0.5f;
 
+    [SerializeField] float touchscreenPinchMultiplier = 0.5f;
+
     // 0 is default, 1, 2, 3 are 90 degree increments rotating clockwise across the map.
     int rotationPosition = 0; //used for the rotation calculation of rotationPivot (and can go negative)
     [HideInInspector] public int rotationPositionNormalised = 0; //used for the rotation of the health bars (limited between 0-3, wraps)
 
-
     float targetCameraSize;
+
+    float oldPinchDistance = -1f; //-1 is a sentinal value
 
     void Start() {
         panPosition = transform.position;
@@ -41,6 +44,7 @@ public class NewCameraMovement : MonoBehaviour
         Vector2 keyboardPanInput = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         TranslateCameraKeyboard(keyboardPanInput * Time.deltaTime);
+        UpdatePinchZoom(); //also calls AdjustZoom()
         AdjustZoom(-Input.GetAxis("Mouse ScrollWheel"));
 
         Vector3 targetPanPosition = panPosition;
@@ -58,6 +62,28 @@ public class NewCameraMovement : MonoBehaviour
             Vector2 mouseInput = new Vector2(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y")) * mousePanSpeed;
             TranslateCameraMouse(mouseInput);
             transform.position = targetPanPosition;
+        }
+    }
+
+    void UpdatePinchZoom()
+    {
+        if (Input.touchCount >= 2) //adapted from http://shorturl.at/deSV3
+        {
+            Vector2 touch0, touch1;
+            touch0 = Input.GetTouch(0).position;
+            touch1 = Input.GetTouch(1).position;
+            float distance = Vector2.Distance(touch0, touch1);
+
+            if (oldPinchDistance >= 0f)
+            {
+                float delta = oldPinchDistance - distance;
+                AdjustZoom(delta * touchscreenPinchMultiplier * -1f);
+            }
+
+            oldPinchDistance = distance;
+        } else
+        {
+            oldPinchDistance = -1f;
         }
     }
 
