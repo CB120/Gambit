@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    [SerializeField] private AdsManager adsManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        adsManager = GameObject.FindWithTag("AdsManager").GetComponent<AdsManager>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,8 @@ public class SceneController : MonoBehaviour
 
     public void ReloadLevel()
     {
+        //Shows an ad when reloading the levek
+        adsManager.ShowAd();
         Time.timeScale = 1;
         UIManager.isPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -28,6 +32,8 @@ public class SceneController : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        //Shows an ad when loading the next level
+        adsManager.ShowAd();
         if(SceneManager.GetActiveScene().name == "Level5")
         {
             SceneLoader.LoadScene("VictoryScene");
