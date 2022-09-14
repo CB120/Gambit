@@ -42,10 +42,6 @@ public class ProceduralSettings : MonoBehaviour
     public void StartGame()
     {
         pcgController.GenerateRandomMap();
-        UIManager.isOtherStateActive = false;
-        //SaveSystem.dynamicDifficulty = true;
-        //CloseUI();
-        //this.gameObject.SetActive(false);
     }
 
     public void ShowPopup()

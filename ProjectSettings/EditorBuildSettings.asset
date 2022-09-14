@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UI-Menu Scenes/MainMenu.unity
+    path: Assets/Scenes/Menu Scenes/MainMenu.unity
     guid: fca8f3743666a1a46b667d5e00a10880
   - enabled: 1
-    path: Assets/Scenes/UI-Menu Scenes/MapScreen.unity
-    guid: 927cb6e5b0b19df4bacd9a0a072614ef
+    path: Assets/Scenes/Menu Scenes/MapScreen.unity
+    guid: c9d0830f740f3eb4aa607c874afcb0ab
   - enabled: 1
-    path: Assets/Scenes/UI-Menu Scenes/LoadingScreen.unity
+    path: Assets/Scenes/Menu Scenes/LoadingScreen.unity
     guid: c211a19e7bccbd84297ddc47a9a6ccb9
   - enabled: 1
     path: Assets/Scenes/Final Scenes/TutorialLevel.unity
@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Level5.unity
     guid: c412ee0405692784bb9347f041e38ff0
   - enabled: 1
-    path: Assets/Scenes/UI-Menu Scenes/VictoryScene.unity
+    path: Assets/Scenes/Menu Scenes/VictoryScene.unity
     guid: 639df3c958728d443b406b144bf7cd6a
   - enabled: 1
     path: Assets/Scenes/Final Scenes/SkirmishMode.unity

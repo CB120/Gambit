@@ -802,53 +802,99 @@ public class AIController : AIParticipant
     #region Turn Logic
     public override void StartTurn()
     {
-        base.StartTurn();                                                                                  // Starts the AI's turn, enabled AI movement.
-        UIManager.ToggleFastForward(true);
-        moveCounter++;
-        UpdateUnitScores();
-        if (OutpostController != null)
+        if (units.Count == 0 && GameManager.gameMode == GameMode.Catapult)
         {
-            GetAIOutpost(OutpostController).OutpostTurn();
-        }
-        GetPlayerUnits();
-        if (ForestLevel == true && checkedForests == false)                                                // Make sure not all players are in forests
-        {
-            foreach (Unit player in PlayerUnits)
+            Debug.Log("There are no more units");
+            base.StartTurn();
+            if (OutpostController != null)
             {
-                if (player.currentCell != null)
+                GetAIOutpost(OutpostController).OutpostTurn();
+            }
+            base.EndTurn();
+            if (CatapultUnit != null)                                              // If a catapult exists, execute its movement
+            {
+                NewCameraMovement.JumpToCell(CatapultUnit.currentCell);
+                MoveCatapult(CatapultUnit);
+                CatapultUnit.movePoints = 20;
+                CatapultUnit.movementRange++;
+            }
+            if (OutpostController != null)
+            {
+                GetAIOutpost(OutpostController).spawnRate = 2;
+                Debug.Log("Spawn Rate Changed");
+            }
+        }
+        else if (units.Count == 0 && GameManager.gameMode == GameMode.Outposts)
+        {
+            Debug.Log("There are no more units");
+            base.StartTurn();
+            if (OutpostController != null)
+            {
+                GetAIOutpost(OutpostController).OutpostTurn();
+            }
+            base.EndTurn();
+            if (OutpostController != null)
+            {
+                GetAIOutpost(OutpostController).spawnRate = 2;
+                Debug.Log("Spawn Rate Changed");
+            }
+        }
+        if (units.Count > 0)
+        {
+            {
+                base.StartTurn();                                                                                  // Starts the AI's turn, enabled AI movement.;
+                UIManager.ToggleFastForward(true);
+                moveCounter++;
+                UpdateUnitScores();
+                if (OutpostController != null)
                 {
-                    if (player.currentCell.isForest)
+                    GetAIOutpost(OutpostController).OutpostTurn();
+                }
+                GetPlayerUnits();
+                if (ForestLevel == true && checkedForests == false)                                                // Make sure not all players are in forests
+                {
+                    foreach (Unit player in PlayerUnits)
                     {
-                        playersInForests++;
+                        if (player.currentCell != null)
+                        {
+                            if (player.currentCell.isForest)
+                            {
+                                playersInForests++;
+                            }
+                            checkedForests = true;
+                        }
                     }
-                    checkedForests = true;
                 }
+                foreach (Unit unit in units)
+                {
+                    GetAIPropertiesOfUnit(unit).hasAttacked = false;
+                    UpdateDifficulty(unit);                                                 // Updates each units difficulty & state according
+                    if (GetAIPropertiesOfUnit(unit).targetUnit == null)
+                    {
+                        if (FindClosestTarget(unit) != null)
+                        {
+                            GetAIPropertiesOfUnit(unit).targetUnit = FindClosestTarget(unit);
+                        }
+                        else
+                        {
+                            GetAIPropertiesOfUnit(unit).targetUnit = PlayerUnits[Random.Range(0, PlayerUnits.Count)];
+                        }
+                    }
+                }
+
+                if (unitSpawnedThisTurn == false)
+                {                                          // Added by Ethan, AIOutpostController jumps the Camera to the spawned Unit.
+                    JumpCameraToCurrentUnit();                                              // This all prevents it from being overriden by JumpCameraToCurrentUnit() not being invoked.
+                }
+                else
+                {
+                    unitSpawnedThisTurn = false;
+                }
+
+                InvokeRepeating("MoveAndAttackInvoke", AITurnTime, AITurnTime * 2);         // We use an Invoke to space out the time between each AI Units moves. Since parametres cant be passed into
+                                                                                            // an Invoke, it is split into two functions (MoveInvoke(), Move().
             }
         }
-        foreach (Unit unit in units)
-        {
-            GetAIPropertiesOfUnit(unit).hasAttacked = false;
-            UpdateDifficulty(unit);                                                 // Updates each units difficulty & state according
-            if (GetAIPropertiesOfUnit(unit).targetUnit == null)
-            {
-                if (FindClosestTarget(unit) != null)
-                {
-                    GetAIPropertiesOfUnit(unit).targetUnit = FindClosestTarget(unit);
-                } else
-                {
-                    GetAIPropertiesOfUnit(unit).targetUnit = PlayerUnits[Random.Range(0, PlayerUnits.Count)];
-                }
-            }
-        }
-
-        if (unitSpawnedThisTurn == false){                                          // Added by Ethan, AIOutpostController jumps the Camera to the spawned Unit.
-            JumpCameraToCurrentUnit();                                              // This all prevents it from being overriden by JumpCameraToCurrentUnit() not being invoked.
-        } else {
-            unitSpawnedThisTurn = false;
-        }
-
-        InvokeRepeating("MoveAndAttackInvoke", AITurnTime, AITurnTime * 2);         // We use an Invoke to space out the time between each AI Units moves. Since parametres cant be passed into
-                                                                                    // an Invoke, it is split into two functions (MoveInvoke(), Move().
     }
 
     private void MoveAndAttackInvoke()
@@ -937,6 +983,7 @@ public class AIController : AIParticipant
             NewCameraMovement.JumpToCell(units[AIUnitCounter].currentCell);          // Moves the camera to the unit that is being moved
         }
     }
+
 
     #endregion
 

@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
 
 
     //Variables
-    public GameMode gameMode;
+    public static GameMode gameMode;
 
     //References
-
+    static GameManager singleton;
  
 
     void Start(){
@@ -92,26 +92,28 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetKeyDown(KeyCode.F)) { Debug.LogError(SaveSystem.dynamicDifficulty);}
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.F)) { Debug.Log(gameMode); }
+        /*if (Input.GetKeyDown(KeyCode.M))
         {
             //SaveSystem.PrintLoadedVariables();
             Debug.Log("AI Score = " + AIController.AIUnitScores);
             Debug.Log("Player Score = " + AIController.PlayerUnitScores);
             Debug.Log("DifficultyDecier = " + UpdateAIDifficulty());
             Debug.Log("Stats = " + SaveSystem.loadedPlayerStats);
-        }
+        }*/
     }
 
     //Game States
     public static void GameIsOver(Unit unit)
     {
         Participant parentParticipant = unit.ownerParticipant.GetComponent<Participant>();
-        if (parentParticipant.units.Count == 0)
+        if (parentParticipant.units.Count == 0 && gameMode == GameMode.DefeatAll)
         {
-            UIManager.enableGameResultState(!unit.isAIControlled);
+            UIManager.EndGame(!unit.isAIControlled);
             GameObject timer = GameObject.FindWithTag("Timer");
             if(timer) timer.GetComponent<Timer>().AddTimeToPlayerStats();
-        }
+        } 
     }
+
+
 }
