@@ -24,6 +24,7 @@ TagManager:
   - Timer
   - Camera Parent
   - PauseObject
+  - AdsManager
   layers:
   - Default
   - TransparentFX
