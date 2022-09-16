@@ -58,10 +58,10 @@ public class NewCameraMovement : MonoBehaviour
         Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetCameraSize, lerpSpeed * Time.deltaTime);
 
         // Handle mouse input after sexy lerped stuff cause the mouse feels weird with that cringe shit
-        if (Input.GetKey(KeyCode.Mouse0)) {
+        if (Input.GetKey(KeyCode.Mouse0) && Input.touchCount <= 1) {
             Vector2 mouseInput = new Vector2(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y")) * mousePanSpeed;
             TranslateCameraMouse(mouseInput);
-            transform.position = targetPanPosition;
+            transform.position = targetPanPosition; 
         }
     }
 
