@@ -29,6 +29,7 @@ public class NewCameraMovement : MonoBehaviour
     float targetCameraSize;
 
     float oldPinchDistance = -1f; //-1 is a sentinal value
+    bool pinchInProgress = false;
 
     void Start() {
         panPosition = transform.position;
@@ -58,7 +59,7 @@ public class NewCameraMovement : MonoBehaviour
         Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetCameraSize, lerpSpeed * Time.deltaTime);
 
         // Handle mouse input after sexy lerped stuff cause the mouse feels weird with that cringe shit
-        if (Input.GetKey(KeyCode.Mouse0) && Input.touchCount < 2) {
+        if (Input.GetKey(KeyCode.Mouse0) && Input.touchCount < 2 && !pinchInProgress) {
             Vector2 mouseInput = new Vector2(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y")) * mousePanSpeed;
             TranslateCameraMouse(mouseInput);
             transform.position = targetPanPosition; 
@@ -81,10 +82,14 @@ public class NewCameraMovement : MonoBehaviour
             }
 
             oldPinchDistance = distance;
+            pinchInProgress = true;
         } else
         {
             oldPinchDistance = -1f;
         }
+
+        //Had issues where if the Player released one finger but not the other, you'd get a weird camera snap-drag. This is to avoid that.
+        if (Input.touchCount == 0) pinchInProgress = false;
     }
 
     void TranslateCameraKeyboard(Vector2 movement) {
