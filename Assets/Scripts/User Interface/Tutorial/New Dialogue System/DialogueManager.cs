@@ -14,7 +14,8 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private Image dialogueFade;
     [SerializeField] private Image backgroundFade;
-
+    [SerializeField] private TextMeshProUGUI ClickAnywhereFade;
+    private bool dialogueStarted = false;
     void Start()
     {
         sentences = new Queue<string>();
@@ -24,18 +25,19 @@ public class DialogueManager : MonoBehaviour
         }
         StartCoroutine(BGFadeIn());
         StartCoroutine(DialogueFadeIn());
+        StartCoroutine(continueFade());
 
     }
 
     IEnumerator DialogueFadeIn()
     {
         yield return new WaitForSeconds(3.3f);
-        Color dialogue = dialogueFade.color;
-        Debug.Log(dialogue.a);
-        while(dialogue.a < 100)
+        Color dialogueText = dialogueFade.color;
+        Debug.Log(dialogueText.a);
+        while(dialogueText.a < 100)
         {
-            dialogue.a += 0.38f * Time.deltaTime;
-            dialogueFade.color = dialogue;
+            dialogueText.a += 0.38f * Time.deltaTime;
+            dialogueFade.color = dialogueText;
             yield return null;
         }
     }
@@ -43,19 +45,29 @@ public class DialogueManager : MonoBehaviour
     IEnumerator BGFadeIn()
     {
         yield return new WaitForSeconds(1.1f);
-        Color background = backgroundFade.color;
-        Debug.Log(background.a);
-        while (background.a <= 0.41)
+        Color backgroundText = backgroundFade.color;
+        Debug.Log(backgroundText.a);
+        while (backgroundText.a <= 0.41)
         {
-            background.a += 0.29f * Time.deltaTime;
-            backgroundFade.color = background;
+            backgroundText.a += 0.29f * Time.deltaTime;
+            backgroundFade.color = backgroundText;
             yield return null;
         }
     }
-    private void Update()
+
+    IEnumerator continueFade()
     {
-    //    StartCoroutine(DialogueFadeIn());
+        Color continueText = ClickAnywhereFade.color;
+        yield return new WaitForSeconds(5f);
+        Debug.Log(continueText.a);
+        while (continueText.a <= 100)
+        {
+            continueText.a += 0.33f * Time.deltaTime;
+            ClickAnywhereFade.color = continueText;
+            yield return null;
+        }
     }
+
     public void StartTutorial(Dialogue dialogue)
     {
         nameText.text = dialogue.name;
@@ -66,19 +78,22 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-
+        dialogueStarted = true;
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if(sentences.Count == 0 && dialogueStarted)
         {
             EndTutorial();
             return;
         }
-        string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        if (sentences.Count != 0)
+        {
+            string sentence = sentences.Dequeue();
+            dialogueText.text = sentence;
+        }
     }
 
     private void EndTutorial()
