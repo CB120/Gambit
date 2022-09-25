@@ -1,14 +1,19 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+    [SerializeField] TextMeshProUGUI nameText;
+    [SerializeField] TextMeshProUGUI dialogueText;
     public GameObject[] UIGameObjects;
     private Queue<string> sentences;
-    public GameObject DialogueCanvas;
+    [SerializeField] private GameObject DialogueCanvas;
+
+    [SerializeField] private Image dialogueFade;
+    [SerializeField] private Image backgroundFade;
 
     void Start()
     {
@@ -17,8 +22,40 @@ public class DialogueManager : MonoBehaviour
         {
             UIObject.SetActive(false);
         }
+        StartCoroutine(BGFadeIn());
+        StartCoroutine(DialogueFadeIn());
+
     }
 
+    IEnumerator DialogueFadeIn()
+    {
+        yield return new WaitForSeconds(3.3f);
+        Color dialogue = dialogueFade.color;
+        Debug.Log(dialogue.a);
+        while(dialogue.a < 100)
+        {
+            dialogue.a += 0.38f * Time.deltaTime;
+            dialogueFade.color = dialogue;
+            yield return null;
+        }
+    }
+
+    IEnumerator BGFadeIn()
+    {
+        yield return new WaitForSeconds(1.1f);
+        Color background = backgroundFade.color;
+        Debug.Log(background.a);
+        while (background.a <= 0.41)
+        {
+            background.a += 0.29f * Time.deltaTime;
+            backgroundFade.color = background;
+            yield return null;
+        }
+    }
+    private void Update()
+    {
+    //    StartCoroutine(DialogueFadeIn());
+    }
     public void StartTutorial(Dialogue dialogue)
     {
         nameText.text = dialogue.name;

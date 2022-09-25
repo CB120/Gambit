@@ -8,7 +8,7 @@ public class TutorialElement : MonoBehaviour
     [SerializeField] private DialogueManager dialogueManager;
     private void Start()
     {
-        Invoke("TriggerDialogue", 0.1f);
+        Invoke("TriggerDialogue", 3.4f);
     }
     public void TriggerDialogue()
     {
