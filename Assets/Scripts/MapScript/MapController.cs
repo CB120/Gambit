@@ -38,15 +38,13 @@ public class MapController : MonoBehaviour
     private void UpdateText(int index)
     {
         mtb.mapName.text = $"{regions[index].mapName}";
-        mtb.units.text = $"Units: {regions[index].unitAmount}";
-        mtb.enemies.text = $"Enemies: {regions[index].enemyAmount}";
+        mtb.units.text = $"{regions[index].unitAmount}";
+        mtb.enemies.text = $"{regions[index].enemyAmount}";
     }
 
     public void BeginLevel(int index)
     {
-        print(index);
-        //SceneLoader.LoadScene($"{regions[index].levelName}");
-        
+        SceneLoader.LoadScene($"{regions[index].levelName}");   
     }
 
     [System.Serializable]
