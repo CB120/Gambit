@@ -15,18 +15,26 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image dialogueFade;
     [SerializeField] private Image backgroundFade;
     [SerializeField] private TextMeshProUGUI ClickAnywhereFade;
+
+    public bool isCampaign;
     private bool dialogueStarted = false;
     void Start()
     {
-        sentences = new Queue<string>();
-        foreach (GameObject UIObject in UIGameObjects)
+        if (!isCampaign)
         {
-            UIObject.SetActive(false);
+            DialogueCanvas.SetActive(false);
         }
-        StartCoroutine(BGFadeIn());
-        StartCoroutine(DialogueFadeIn());
-        StartCoroutine(continueFade());
-
+        else
+        {
+            sentences = new Queue<string>();
+            foreach (GameObject UIObject in UIGameObjects)
+            {
+                UIObject.SetActive(false);
+            }
+            StartCoroutine(BGFadeIn());
+            StartCoroutine(DialogueFadeIn());
+            StartCoroutine(continueFade());
+        }
     }
 
     IEnumerator DialogueFadeIn()
