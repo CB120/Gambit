@@ -26,7 +26,7 @@ public class MouseController : MonoBehaviour
 
     //Private methods
     void TestHit(){ //Raycasts from the Mouse into the World, calling CursorOnCell() on the Cell it hits, or GridController.CursorNotOnCell() if it doesn't hit anything
-        if (!cellSelectionEnabled || EventSystem.current.IsPointerOverGameObject()){
+        if (!cellSelectionEnabled || EventSystem.current.IsPointerOverGameObject() || Input.touchCount >= 2){
             GridController.CursorNotOnCell();
         }
 
@@ -35,7 +35,7 @@ public class MouseController : MonoBehaviour
         if (Physics.Raycast(cameraRay.origin, cameraRay.direction, out hit, 1000, mouseLayers)) {
             GameObject hitObject = hit.transform.gameObject;
             if (hitObject.GetComponent<Cell>()) {
-                hitObject.GetComponent<Cell>().CursorOnCell();
+                hitObject.GetComponent<Cell>().CursorOnCell(); //this can be optimised at some point, store reference to Cell instead of the double-GetComponent()
             } else {
                 GridController.CursorNotOnCell();
             }
