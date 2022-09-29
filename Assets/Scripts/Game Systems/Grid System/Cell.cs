@@ -161,7 +161,7 @@ public class Cell : MonoBehaviour
 
     public void SetMouseInCell(bool b) {
         mouseInCell = b;
-        UpdateMaterial(materialState);
+        if (SystemInfo.deviceType == DeviceType.Desktop) UpdateMaterial(materialState);
 
         if (currentUnit && !isForest){
             currentUnit.SetUI(b);

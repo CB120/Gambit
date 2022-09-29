@@ -30,12 +30,6 @@ public class MouseController : MonoBehaviour
             GridController.CursorNotOnCell();
         }
 
-        if (Input.touchCount >= 1) //GUARD to prevent the raycast from firing when the Player's pinch-to-zoom-ing or tap-and-drag-to-pan-ing
-        {
-            GridController.CursorNotOnCell();
-            return;
-        }
-
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(cameraRay.origin, cameraRay.direction, out hit, 1000, mouseLayers)) {
