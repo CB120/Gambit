@@ -26,8 +26,14 @@ public class MouseController : MonoBehaviour
 
     //Private methods
     void TestHit(){ //Raycasts from the Mouse into the World, calling CursorOnCell() on the Cell it hits, or GridController.CursorNotOnCell() if it doesn't hit anything
-        if (!cellSelectionEnabled || EventSystem.current.IsPointerOverGameObject() || Input.touchCount >= 2){
+        if (!cellSelectionEnabled || EventSystem.current.IsPointerOverGameObject()){
             GridController.CursorNotOnCell();
+        }
+
+        if (Input.touchCount >= 2) //GUARD to prevent the raycast from firing when the Player's pinch-to-zoom-ing
+        {
+            GridController.CursorNotOnCell();
+            return;
         }
 
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
