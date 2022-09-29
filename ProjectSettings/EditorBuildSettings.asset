@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: fca8f3743666a1a46b667d5e00a10880
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/MapScreen.unity
-    guid: 927cb6e5b0b19df4bacd9a0a072614ef
+    guid: 1b171defa891fb547a162e9213be615a
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/LoadingScreen.unity
     guid: c211a19e7bccbd84297ddc47a9a6ccb9
