@@ -21,3 +21,4 @@ MonoBehaviour:
   damage: 13
   range: 5
   movementRange: 8
+  icon: {fileID: 21300000, guid: 3a85f45efc942dd4a8c79ed15105a4e6, type: 3}

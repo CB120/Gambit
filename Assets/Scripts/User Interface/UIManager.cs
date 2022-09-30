@@ -64,13 +64,13 @@ public class UIManager : MonoBehaviour
     public static void SetHUD(Unit selectedUnit)
     {
         UIObj.HUDtitle.text = selectedUnit.unitType.ToString();
-        //HUDhealth.text = selectedUnit.health.ToString() + "/" + selectedUnit.maxHealth.ToString();
         UIObj.HUDinformation.text = selectedUnit.informationText;
         UIObj.healthBar.SetMaxHealth(selectedUnit.maxHealth);
         UIObj.healthBar.SetHealth(selectedUnit.health);
         UIObj.HUDattack.text = selectedUnit.damage.ToString();
         UIObj.HUDrange.text = selectedUnit.attackRange.ToString() + " UNITS";
         UIObj.HUDportrait.sprite = GetImage(selectedUnit);
+        UIObj.HUDButton.onClick.AddListener(delegate { UIObj.infoMenu.SetOnEnum(selectedUnit.unitType); });
 
     }
 

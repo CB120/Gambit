@@ -13,4 +13,6 @@ public class Unit_SO : ScriptableObject
     public float damage;
     public int range;
     public int movementRange;
+
+    public Sprite icon;
 }

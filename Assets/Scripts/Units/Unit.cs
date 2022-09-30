@@ -78,7 +78,10 @@ public class Unit : MonoBehaviour
     void Awake() {
         // Initialise movement points to movement range.
         movePoints = movementRange;
-        health = maxHealth;
+        health = unitData.health;
+        movementRange = unitData.movementRange;
+        attackRange = unitData.range;
+        informationText = unitData.unitDescription;
 
         AssignOwnerParticipant();
     }
