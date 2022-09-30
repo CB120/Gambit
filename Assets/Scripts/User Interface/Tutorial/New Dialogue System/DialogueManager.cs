@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3.3f);
         Color dialogueText = dialogueFade.color;
-        Debug.Log(dialogueText.a);
+        //Debug.Log(dialogueText.a);
         while(dialogueText.a < 100)
         {
             dialogueText.a += 0.38f * Time.deltaTime;
@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.1f);
         Color backgroundText = backgroundFade.color;
-        Debug.Log(backgroundText.a);
+        //Debug.Log(backgroundText.a);
         while (backgroundText.a <= 0.41)
         {
             backgroundText.a += 0.29f * Time.deltaTime;
@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
     {
         Color continueText = ClickAnywhereFade.color;
         yield return new WaitForSeconds(5f);
-        Debug.Log(continueText.a);
+        //Debug.Log(continueText.a);
         while (continueText.a <= 100)
         {
             continueText.a += 0.33f * Time.deltaTime;

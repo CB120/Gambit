@@ -49,8 +49,8 @@ public class AIOutpostController : MonoBehaviour
     [Header("Asset references")]
     public AudioClip spawnSoundEffect;
 
-    GameObject AIParticipant;
-    AIController AIManager;
+    [SerializeField] GameObject AIParticipant;
+    [SerializeField] AIController AIManager;
 
 
     //Methods

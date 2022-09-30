@@ -835,9 +835,13 @@ public class AIController : AIParticipant
             base.EndTurn();
             if (OutpostController != null)
             {
-                GetAIOutpost(OutpostController).spawnRate = 2;
-                Debug.Log("Spawn Rate Changed");
+                if (GetAIOutpost(OutpostController).spawnRate != 2)
+                {
+                    GetAIOutpost(OutpostController).spawnRate = 2;
+                    Debug.Log("Spawn Rate Changed");
+                }
             }
+            return;
         }
         if (units.Count > 0)
         {
