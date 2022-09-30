@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8057a5727e76b44f9ddf16c5ac66fd0, type: 3}
+  m_Name: Crossbow
+  m_EditorClassIdentifier: 
+  unitType: 2
+  unitName: 20
+  unitDescription: 'crossbow units deal significant damage at <color=#FF8600>close
+    range</color>. this unit will do <color=#FF8600>less damage</color> to units
+    that are <color=#FF8600>lower</color>  or <color=#FF8600>further away</color> '
+  health: 20
+  damage: 13
+  range: 5
+  movementRange: 8

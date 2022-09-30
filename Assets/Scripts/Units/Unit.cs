@@ -5,6 +5,9 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     //========PROPERTIES========//
+    [Header("Object Reference")]
+    public Unit_SO unitData;
+
     [Header("Health Settings")]
     public float maxHealth = 100;
     public float health;
