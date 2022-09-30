@@ -384,7 +384,7 @@ public class Unit : MonoBehaviour
         }
 
         Unit unit = obj.GetComponent<Unit>();
-        if(unit && unit.currentCell.isForest && !unit.isAIControlled)
+        if(unit && unit.currentCell && unit.currentCell.isForest && !unit.isAIControlled)
         {
             newLayer = 10;
         }
