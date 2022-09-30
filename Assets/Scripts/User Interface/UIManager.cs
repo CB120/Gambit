@@ -55,8 +55,7 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetButtonDown("Pause"))
         {
-            if(UIObj.pauseManager.PlayerCanPause())
-            Pause();
+            TryPause();
         }
     }
 
@@ -277,7 +276,9 @@ public class UIManager : MonoBehaviour
         UIObj.skirmishSettingsObject.GetComponent<Animator>().SetTrigger("LevelWon");
     }
 
-
+    public void TryPause () {
+        if(UIObj.pauseManager.PlayerCanPause()) Pause();
+    }
     public void Pause()
     {
         isPaused = !isPaused;
