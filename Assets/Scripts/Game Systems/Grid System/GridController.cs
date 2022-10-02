@@ -117,7 +117,7 @@ public class GridController : MonoBehaviour
                 if (grid[v.x, v.y])
                 {
                     grid[v.x, v.y].isForest = true;
-                    grid[v.x, v.y].forestObject = Singleton.mapGenerator.forestObjects[i]; // If this is coming up with an error, just add random coordinates w/ no object ~ Christian
+                    grid[v.x, v.y].forestObject = Singleton.mapGenerator.forestObjects[i]; // If this is coming up with an error, just Generate forests & then ungenerate them (delete the tree prefabs too) ~ Christian
                 }
                 else
                 {
