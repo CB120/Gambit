@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78aa07f35c1d0419ea925247c14ef805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitData: {fileID: 11400000, guid: 3fc0844c7ea55d349a7a78670b7affb6, type: 2}
   maxHealth: 18
   health: 18
   damage: 6

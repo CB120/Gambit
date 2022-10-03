@@ -19,6 +19,7 @@ public class UIObjects : MonoBehaviour
     public GameObject settingsScreen;
     public TextMeshProUGUI objectiveTitle;
     public Button fastForwardButton;
+    public Button HUDButton;
 
     [Header("Tool Bar")]
     public List<Sprite> imageList;
@@ -32,7 +33,7 @@ public class UIObjects : MonoBehaviour
     public GameObject statisticsHolder;
     public GameObject[] canvases;
     public PauseManager pauseManager;
-
+    public UnitInfoMenu infoMenu;
 
     [Header("Game Modes")]
     public GameObject skirmishSettingsObject;

@@ -63,20 +63,18 @@ public class UIManager : MonoBehaviour
     public static void SetHUD(Unit selectedUnit)
     {
         UIObj.HUDtitle.text = selectedUnit.unitType.ToString();
-        //HUDhealth.text = selectedUnit.health.ToString() + "/" + selectedUnit.maxHealth.ToString();
         UIObj.HUDinformation.text = selectedUnit.informationText;
         UIObj.healthBar.SetMaxHealth(selectedUnit.maxHealth);
         UIObj.healthBar.SetHealth(selectedUnit.health);
         UIObj.HUDattack.text = selectedUnit.damage.ToString();
         UIObj.HUDrange.text = selectedUnit.attackRange.ToString() + " UNITS";
         UIObj.HUDportrait.sprite = GetImage(selectedUnit);
+        UIObj.HUDButton.onClick.AddListener(delegate { UIObj.infoMenu.SetOnEnum(selectedUnit.unitType); });
 
     }
 
     public static void SetEnemyObjectiveUnits(int unitCount)
     {
-        Debug.Log(UIObj);
-        Debug.Log(UIObj.killObjectiveText);
         UIObj.killObjectiveText.text = "<color=#FF5D5D>" + unitCount.ToString() + "</color> remaining";
     }
 
@@ -234,7 +232,6 @@ public class UIManager : MonoBehaviour
                 GameObject.FindObjectOfType<UIManager>().Invoke("OnSkirmishDeath", 4.75f);
             else if (isEndlessModeActive)
             {
-                Debug.Log("Died On Endless Mode");
                 UIObj.skirmishSettingsObject.GetComponent<EndlessMode>().Invoke("OnLoseRound", 4.75f);
             }
 
@@ -255,7 +252,6 @@ public class UIManager : MonoBehaviour
             }
             else if (isEndlessModeActive)
             {
-                Debug.Log("Endless Mode Won");
                 UIObj.skirmishSettingsObject.GetComponent<EndlessMode>().Invoke("OnWinRound", 2f);
 
             }
@@ -307,8 +303,6 @@ public class UIManager : MonoBehaviour
 
     public static void ToggleTurn(Participant participantType)
     {
-        //Debug.Log(participantType);
-
         if (participantType.properties.participantType == ParticipantType.LocalPlayer)
         {
             UIObj.HUDEndTurn.interactable = true;
@@ -365,7 +359,6 @@ public class UIManager : MonoBehaviour
     public static List<GameObject> outPostIndicators = new List<GameObject>();
     public static void SetOutPosts(int counter)
     {
-        Debug.Log(outPostIndicators.Count);
         foreach (GameObject obj in outPostIndicators)
             Destroy(obj);
 
