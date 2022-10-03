@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52d85064cca0480fa59d274d3f88b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitData: {fileID: 11400000, guid: 2ff6090ee664efb43ae7bef32941f793, type: 2}
   maxHealth: 24
   health: 24
   damage: 10
@@ -167,6 +168,7 @@ MonoBehaviour:
   startCell: {fileID: 0}
   currentCell: {fileID: 0}
   isAttacking: 0
+  hasAttacked: 0
   position: {x: 0, y: 0}
   unitType: 0
   isAIControlled: 0
