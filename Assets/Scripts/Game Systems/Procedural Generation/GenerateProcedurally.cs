@@ -223,6 +223,7 @@ public class GenerateProcedurally : MonoBehaviour
         if (generateRandomly)
             gameMode = GetGameMode(this.mapSize);
         UIManager.UIObj.currentGameMode = this.gameMode.type;
+        GameManager.gameMode = this.gameMode.type;
         mapGenerator._mapWidth = mapSize;
         mapGenerator._mapHeight = mapSize;
         gridGenerator.width = mapSize;
