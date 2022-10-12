@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class GenerateProcedurally : MonoBehaviour
 {
     [Header("Objects")]
+    #region References
     [SerializeField] private MapGenerator mapGenerator;
     [SerializeField] private GridGenerator gridGenerator;
     [SerializeField] public GridController gridController;
@@ -15,8 +17,9 @@ public class GenerateProcedurally : MonoBehaviour
     [SerializeField] private GameObject outpost;
     [SerializeField] private GameObject forest;
     private List<GameObject> objectsInScene = new List<GameObject>();
-
+    #endregion
     [Header("Customisation")]
+    #region Customisable Properties
     [SerializeField] int minimumMapSize = 15;//If we let the user choose map size these just need to be set to the same number
     [SerializeField] int maximumMapSize = 50;
     public bool generateRandomly = true; //If a random biome should be chosen for the user
@@ -32,7 +35,7 @@ public class GenerateProcedurally : MonoBehaviour
     public ChooseGameMode gameMode;
     public bool isDayTime;
     public TimeOfDay timeOfDay;
-
+    #endregion
     [Header("Settings")]
     public MapSettings defaultSettings;
 
@@ -40,11 +43,11 @@ public class GenerateProcedurally : MonoBehaviour
     [SerializeField] int safeGuard = 50;
     private float[,] heightMap;
 
-    private AIOutpostController AIOutpostController;
+    private AIOutpostController outpostController;
 
     private void Start()
     {
-        AIOutpostController = outpostObjective.gameObject.GetComponent<AIOutpostController>();
+        outpostController = outpostObjective.gameObject.GetComponent<AIOutpostController>();
         if (generateRandomly)
         {
             SaveSystem.dynamicDifficulty = true;
@@ -56,8 +59,10 @@ public class GenerateProcedurally : MonoBehaviour
 
     public void GenerateRandomMap()
     {
-        AIOutpostController.turnCounter = 0;
-        AIOutpostController.spawnCoordinates.Clear();
+        outpostController.turnCounter = 0;
+        outpostController.spawnCoordinates.Clear();
+        outpostController.unitsSpawned = 0;
+        outpostController.spawnMode = SpawnMode.Disabled;
 
         UIManager.RemoveDeadUnits();
         OutpostObjective.outpostGroups.Clear();
@@ -346,14 +351,20 @@ public class GenerateProcedurally : MonoBehaviour
         }
 
         if (heightMap.GetLength(0) < smallMapSize) return;//If the map size is less than 25, spawn no outposts
-        if (heightMap.GetLength(0) < mediumMapSize) SpawnOutpost();//else if the size is less than 30, spawn 1 outpost
+        if (heightMap.GetLength(0) < mediumMapSize) { //else if the size is less than 30, spawn 1 outpost
+            outpostController.spawnMode = SpawnMode.Limited;
+            SpawnOutpost(); 
+        }
         else if (heightMap.GetLength(0) < largeMapSize)//else if the size is less than 40, spawn 2 outpost
         {
+
+            outpostController.spawnMode = SpawnMode.Limited;
             SpawnOutpost();
             SpawnOutpost();
             if (gameMode.type == GameMode.Outposts)
             {
                 SpawnOutpost();
+                outpostController.spawnMode = SpawnMode.Infinite;
             }
         }
     }
@@ -366,7 +377,7 @@ public class GenerateProcedurally : MonoBehaviour
         GameObject newOutpost = Instantiate(outpost, GetOutpostPosition(outpostSettings), Quaternion.Euler(new Vector3(0, 90, 0)), parent.transform);//Spawn the outpost using GetOutpostPosition(), which will return a random position on the map (excludes user spawn area)
         outpostSettings.outpostObject = newOutpost;
         gridGenerator.outpostGroups.Add(outpostSettings);
-        parent.transform.Rotate(new Vector3(0, 90, 0)); //Rotate the parent that the outpost is instantiated to, because it's F u c k i n g cooked trying to get the correct position normally
+        parent.transform.Rotate(new Vector3(0, 90, 0)); 
         objectsInScene.Add(parent); //Add the parent object and outpost object
         objectsInScene.Add(newOutpost);
     }
@@ -495,6 +506,7 @@ public class GenerateProcedurally : MonoBehaviour
     #endregion
 }
 
+#region Structures
 [System.Serializable]
 public struct ChooseGameMode
 {
@@ -517,3 +529,4 @@ public struct TimeOfDay
     public GameObject dayTime;
     public GameObject nightTime;
 }
+#endregion

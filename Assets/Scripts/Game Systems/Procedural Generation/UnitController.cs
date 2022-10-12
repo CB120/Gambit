@@ -24,7 +24,7 @@ public class UnitController : MonoBehaviour //I am coding this while drunk, I pr
     [Header("Endless Mode")]
     [SerializeField] private EndlessMode endlessMode;
     [Header("Runtime")]
-    private List<GameObject> spawnedPlayerUnits = new List<GameObject>();
+    [SerializeField] public List<GameObject> spawnedPlayerUnits = new List<GameObject>();
     private List<Cell> spawnedAIPositions = new List<Cell>();
     [HideInInspector]
     public GameObject castle;
