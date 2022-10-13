@@ -18,6 +18,10 @@ public class DialogueManager : MonoBehaviour
 
     public bool isCampaign;
     private bool dialogueStarted = false;
+
+    // Time Values
+    [SerializeField] private float DialogueSpeed; // Set to 0.38f by default
+    [SerializeField] private float BackgroundFadeSpeed; // set to 0.29f by default
     void Start()
     {
         if (!isCampaign)
@@ -39,12 +43,12 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator DialogueFadeIn()
     {
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(2.1f);
         Color dialogueText = dialogueFade.color;
         //Debug.Log(dialogueText.a);
         while(dialogueText.a < 100)
         {
-            dialogueText.a += 0.38f * Time.deltaTime;
+            dialogueText.a += DialogueSpeed * Time.deltaTime;
             dialogueFade.color = dialogueText;
             yield return null;
         }
@@ -57,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log(backgroundText.a);
         while (backgroundText.a <= 0.41)
         {
-            backgroundText.a += 0.29f * Time.deltaTime;
+            backgroundText.a += BackgroundFadeSpeed * Time.deltaTime;
             backgroundFade.color = backgroundText;
             yield return null;
         }

@@ -10,7 +10,7 @@ public class TutorialElement : MonoBehaviour
     {
         if (dialogueManager.isCampaign)
         {
-            Invoke("TriggerDialogue", 4f);
+            Invoke("TriggerDialogue", 2.5f);
         }
     }
     public void TriggerDialogue()
