@@ -44,6 +44,12 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         transitionAnimator = GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<Animator>();
+
+        // Ensure pause menu is disabled in case someone accidentally leaves it enabled in inspector after working on it.
+        if (pauseMenu.activeInHierarchy) {
+            isPaused = true; // Logically, we're starting from a paused state
+            Pause();
+        }
     }
 
     private void Update()
