@@ -16,7 +16,7 @@ MonoBehaviour:
   unitName: Archer
   unitDescription: Archers' <color=#FF8600> range increases</color> depending on
     their  <color=#FF8600>height position</color>
-  health: 3
+  health: 4
   damage: 1
   range: 15
   movementRange: 5
