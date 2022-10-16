@@ -79,6 +79,8 @@ public class Unit : MonoBehaviour
         // Initialise movement points to movement range.
         movePoints = movementRange;
         health = unitData.health;
+        maxHealth = unitData.health;
+        damage = unitData.damage;
         movementRange = unitData.movementRange;
         attackRange = unitData.range;
         informationText = unitData.unitDescription;

@@ -71,8 +71,10 @@ public class UIManager : MonoBehaviour
     {
         UIObj.HUDtitle.text = selectedUnit.unitType.ToString();
         UIObj.HUDinformation.text = selectedUnit.informationText;
-        UIObj.healthBar.SetMaxHealth(selectedUnit.maxHealth);
-        UIObj.healthBar.SetHealth(selectedUnit.health);
+        // DEPRECATED
+        // UIObj.healthBar.SetMaxHealth(selectedUnit.maxHealth);
+        UIObj.healthSquareBar.Initialise(selectedUnit.unitData.health);
+        UIObj.healthSquareBar.SetHealth((int)selectedUnit.health);
         UIObj.HUDattack.text = selectedUnit.damage.ToString();
         UIObj.HUDrange.text = selectedUnit.attackRange.ToString() + " UNITS";
         UIObj.HUDportrait.sprite = GetImage(selectedUnit);
