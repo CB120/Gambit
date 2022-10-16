@@ -8,7 +8,10 @@ public class TutorialElement : MonoBehaviour
     [SerializeField] private DialogueManager dialogueManager;
     private void Start()
     {
-        Invoke("TriggerDialogue", 3.4f);
+        if (dialogueManager.isCampaign)
+        {
+            Invoke("TriggerDialogue", 2.5f);
+        }
     }
     public void TriggerDialogue()
     {

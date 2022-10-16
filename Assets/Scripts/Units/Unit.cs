@@ -5,6 +5,9 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     //========PROPERTIES========//
+    [Header("Object Reference")]
+    public Unit_SO unitData;
+
     [Header("Health Settings")]
     public float maxHealth = 100;
     public float health;
@@ -75,7 +78,10 @@ public class Unit : MonoBehaviour
     void Awake() {
         // Initialise movement points to movement range.
         movePoints = movementRange;
-        health = maxHealth;
+        health = unitData.health;
+        movementRange = unitData.movementRange;
+        attackRange = unitData.range;
+        informationText = unitData.unitDescription;
 
         AssignOwnerParticipant();
     }
@@ -378,7 +384,7 @@ public class Unit : MonoBehaviour
         }
 
         Unit unit = obj.GetComponent<Unit>();
-        if(unit && unit.currentCell.isForest && !unit.isAIControlled)
+        if(unit && unit.currentCell && unit.currentCell.isForest && !unit.isAIControlled)
         {
             newLayer = 10;
         }

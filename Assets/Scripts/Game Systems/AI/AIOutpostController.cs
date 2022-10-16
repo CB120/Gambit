@@ -42,17 +42,19 @@ public class AIOutpostController : MonoBehaviour
     public int turnCounter = 0;
 
     int spawnLimit;
-    int unitsSpawned = 0;
+    [HideInInspector] public int unitsSpawned = 0;
     bool spawnedOnFirstTurn = false;
 
     //References
     [Header("Asset references")]
     public AudioClip spawnSoundEffect;
 
-    GameObject AIParticipant;
-    AIController AIManager;
+    [SerializeField] GameObject AIParticipant;
+    [SerializeField] AIController AIManager;
 
-
+    [Header("Procedural Mode")]
+    [SerializeField] bool isProcedural;
+    [SerializeField] UnitController unitController;
     //Methods
         //Events
             //Engine-called
@@ -64,6 +66,7 @@ public class AIOutpostController : MonoBehaviour
 
             //Participant-called
     public void OutpostTurn(){
+        Debug.LogWarning("OutposeTurnCalled");
         if (AIParticipant != null && AIManager != null) {
             if (spawnMode != SpawnMode.Disabled) turnCounter++;
 
@@ -124,12 +127,13 @@ public class AIOutpostController : MonoBehaviour
 
         //Instantiate the prefab
         if (foundAvailableCell){
-            Unit prefab = Instantiate(unitToSpawn, GridController.GetCellAt(spawnCoordinates[randomCell]).transform.position, Quaternion.identity, transform);
+            Unit prefab = Instantiate(unitToSpawn, GridController.GetCellAt(spawnCoordinates[randomCell]).transform.position, Quaternion.identity, isProcedural ? transform.parent.parent : transform);
             prefab.startCell = GridController.GetCellAt(spawnCoordinates[randomCell]);//set the start cell of the unit
             prefab.MoveToCell(prefab.startCell); //Teleport the Unit to their new Cell and play the particle effect
             AIManager.units.Add(prefab);  //add to units list
             unitsSpawned++;
 
+            if (isProcedural) unitController.spawnedPlayerUnits.Add(prefab.gameObject);
             if (spawnSoundEffect) AudioManager.PlaySound(spawnSoundEffect, AudioType.UnitSounds);
             NewCameraMovement.JumpToCell(spawnCoordinates[randomCell]);
             AIManager.unitSpawnedThisTurn = true;
