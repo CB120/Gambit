@@ -19,8 +19,9 @@ public class NewCameraMovement : MonoBehaviour
     [SerializeField] float zoomSpeed = 10.0f;
 
     [SerializeField] float lerpSpeed = 0.5f;
-
+    [Header("Toushcreen-specific controls")]
     [SerializeField] float touchscreenPinchMultiplier = 0.5f;
+    [SerializeField] float dragYMinimumThreshold = 60f;
 
     // 0 is default, 1, 2, 3 are 90 degree increments rotating clockwise across the map.
     int rotationPosition = 0; //used for the rotation calculation of rotationPivot (and can go negative)
@@ -61,7 +62,16 @@ public class NewCameraMovement : MonoBehaviour
         // Handle mouse input after sexy lerped stuff cause the mouse feels weird with that cringe shit
         if (Input.GetKey(KeyCode.Mouse0) && Input.touchCount < 2 && !pinchInProgress) {
             Vector2 mouseInput = new Vector2(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y")) * mousePanSpeed;
-            TranslateCameraMouse(mouseInput);
+            if (Input.touchCount == 0)
+            {
+                TranslateCameraMouse(mouseInput);
+            }
+            else
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                if (mousePosition.y >= dragYMinimumThreshold) TranslateCameraMouse(mouseInput);
+            }
+
             transform.position = targetPanPosition; 
         }
     }
