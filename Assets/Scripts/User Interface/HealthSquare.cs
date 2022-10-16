@@ -11,6 +11,10 @@ public class HealthSquare : MonoBehaviour
     [SerializeField] Sprite filledSprite;
 
     private void Awake() {
+        Setup();
+    }
+    // split off to ensure that no code is run on healthsquares before awake
+    public void Setup () {
         img = GetComponent<Image>();
     }
 
@@ -22,6 +26,11 @@ public class HealthSquare : MonoBehaviour
             case 2 : newSprite = filledSprite; break;
             default: newSprite = unfilledSprite; break;
         }
+        if (!newSprite) {
+            Debug.LogWarning("HealthSquare sprite missing! Amount called for: " + i);
+            return;
+        } 
+        // if (!img) img = GetComponent<Image>();
         img.sprite = newSprite;
     }
 }

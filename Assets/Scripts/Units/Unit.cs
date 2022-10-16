@@ -61,6 +61,7 @@ public class Unit : MonoBehaviour
     [Header("Aesthetic")]
     public GameObject selectedUI;
     private HealthBar healthBar;
+    [SerializeField] HealthSquareBar healthSquareBar;
     [SerializeField] private GameObject UICanvas;
     [SerializeField] private ParticleSystem spawnPS;
     UnitAesthetics unitAesthetics;
@@ -90,7 +91,10 @@ public class Unit : MonoBehaviour
 
     public virtual void Start() {
         unitAesthetics = GetComponent<UnitAesthetics>();
-        healthBar = gameObject.GetComponent<HealthBar>();
+        // healthBar = gameObject.GetComponent<HealthBar>();
+        if (!healthSquareBar) healthSquareBar = GetComponentInChildren<HealthSquareBar>();
+        if (healthSquareBar) healthSquareBar.Initialise(unitData.health);
+
         // Temporary system for placing units in their start cell.
         // Long-term this will ideally be replaced with something less janky.
         // e.g. some overseeing automated system to place units in logical positions
@@ -215,9 +219,14 @@ public class Unit : MonoBehaviour
     public void DecreaseHealth(float healthDecrement){
         unitAesthetics.SpawnDamageText(healthDecrement);
         health -= healthDecrement;
-        if (healthBar) {
+        // if (healthBar) {
+        //     EnableUI();
+        //     healthBar.SetHealth(health);
+        //     Invoke("DisableUI", 5.0f);
+        // }
+        if (healthSquareBar) {
             EnableUI();
-            healthBar.SetHealth(health);
+            healthSquareBar.SetHealth((int)health);
             Invoke("DisableUI", 5.0f);
         }
         if (health <= 0) DestroyUnit();

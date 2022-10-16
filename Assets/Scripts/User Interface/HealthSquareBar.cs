@@ -18,6 +18,7 @@ public class HealthSquareBar : MonoBehaviour
         for (int i = 0; i < maxHealth / 2; i++) {
             GameObject newObject = Instantiate(healthSquarePrefab, transform);
             HealthSquare newSquare = newObject.GetComponent<HealthSquare>();
+            newSquare.Setup();
             newSquare.SetAmount(2);
             healthSquares.Add(newSquare);
         }
