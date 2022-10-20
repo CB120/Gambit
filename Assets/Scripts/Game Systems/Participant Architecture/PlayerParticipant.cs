@@ -15,6 +15,7 @@ public class PlayerParticipant : Participant
     [SerializeField] AudioClip changeUnitSound;
 
     public Unit Catapult = null;
+    [SerializeField] bool AIGoesFirst;
 
 
     //Engine-called
@@ -37,10 +38,16 @@ public class PlayerParticipant : Participant
     //Turn-ly methods
     public override void StartTurn(){
         base.StartTurn();
+        if (AIGoesFirst)
+        {
+            Invoke("SkipToAITurn", 2f);
+            return;
+        }
         mouseController.cellSelectionEnabled = true;
         ResetMovePoints();
         OnSelectNewUnit();
         UIManager.SetToolBarImage(units);
+        
         turnCounter++;
     }
 
@@ -170,5 +177,11 @@ public class PlayerParticipant : Participant
                 SelectUnit(8);
             }
         }
+    }
+    private void SkipToAITurn()
+    {
+        base.EndTurn();
+        turnCounter++;
+        AIGoesFirst = false;
     }
 }
