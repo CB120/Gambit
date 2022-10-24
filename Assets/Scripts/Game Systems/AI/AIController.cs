@@ -823,6 +823,7 @@ public class AIController : AIParticipant
                 GetAIOutpost(OutpostController).spawnRate = 2;
                 Debug.Log("Spawn Rate Changed");
             }
+            return;
         }
         else if (units.Count == 0 && GameManager.gameMode == GameMode.Outposts)
         {

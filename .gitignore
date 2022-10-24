@@ -61,3 +61,6 @@ crashlytics-build.properties
 UserSettings/EditorUserSettings.asset
 UserSettings/Layouts/CurrentMaximizeLayout.dwlt
 .vscode/settings.json
+UserSettings/Layouts/default-2021.dwlt
+*.dwlt
+UserSettings/EditorUserSettings.asset

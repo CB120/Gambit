@@ -919,6 +919,8 @@ MonoBehaviour:
   backgroundFade: {fileID: 1672585821565776247}
   ClickAnywhereFade: {fileID: 4551656230655742439}
   isCampaign: 0
+  DialogueSpeed: 0.38
+  BackgroundFadeSpeed: 0.29
 --- !u!4 &6127384770914884329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6628178700200182047, guid: 4b08e65548308d844ba381de0e6f7ac7,
