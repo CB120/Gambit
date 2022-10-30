@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_StartCorner: 1
+  m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 20, y: 20}
   m_Spacing: {x: 0, y: 0}
@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSquarePrefab: {fileID: 7436644146598697987, guid: 4c18b9b45aec5694cbaf23853d98afe1,
     type: 3}
+  experimental_expectOddMaxHealth: 1
