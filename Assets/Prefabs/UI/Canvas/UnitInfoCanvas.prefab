@@ -4509,6 +4509,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7436644146598697987, guid: a912c3ee4dfba9b458f44879c080f12d,
         type: 3}
+    - target: {fileID: 5404735403037653514, guid: 0e414a6e2a597f84cb7cb1a90581915c,
+        type: 3}
+      propertyPath: experimental_expectOddMaxHealth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5666372145720321483, guid: 0e414a6e2a597f84cb7cb1a90581915c,
         type: 3}
       propertyPath: m_Name
