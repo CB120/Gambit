@@ -16,8 +16,8 @@ MonoBehaviour:
   unitName: Mage
   unitDescription: A Mage's attack <color=#FF8600>chains between enemies</color>
     if they're <color=#FF8600>within 3 spaces</color> of each other
-  health: 18
-  damage: 10
+  health: 4
+  damage: 2
   range: 5
   movementRange: 7
   icon: {fileID: 21300000, guid: eba181cb1aa034547a4943e464543ac1, type: 3}

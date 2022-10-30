@@ -70,6 +70,7 @@ MonoBehaviour:
   unitType: 1
   isAIControlled: 0
   selectedUI: {fileID: 2502704136069135162}
+  healthSquareBar: {fileID: 7677668565166122716}
   UICanvas: {fileID: 3013204434629517266}
   spawnPS: {fileID: 5785021667225969199, guid: 8c96dd32ab49eec419bfc6ab7a425af3, type: 3}
   informationText: Archers' <color=#FF8600> range increases</color> depending on
@@ -418,6 +419,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 165676540732321449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7677668565166122716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7548058325781301365, guid: 6a00cf3abbdd9b34ca08114f805f220c,
+    type: 3}
+  m_PrefabInstance: {fileID: 165676540732321449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f972987375ff45b0c63322de5ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8054543832567380860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7893654694311679445, guid: 6a00cf3abbdd9b34ca08114f805f220c,

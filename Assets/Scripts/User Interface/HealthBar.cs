@@ -6,6 +6,12 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
+    // DEPRECATED
+    // IN NEARLY EVERY CASE YOU SHOULD BE USING HEALTHSQUAREBARS NOW
+    // THIS JUST EXISTS FOR EASY INTEGRATION OF OLD STUFF
+    // TODO: get rid of this script entirely and directly link stuff to healthsquarebar
+
+
     public bool isUnit = true;
     //[HideInInspector]
     public float maxHealth;
@@ -35,7 +41,6 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(float health)
     {
-
       
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
