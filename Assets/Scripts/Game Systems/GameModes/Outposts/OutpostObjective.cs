@@ -8,7 +8,7 @@ public class OutpostObjective : MonoBehaviour
 {
     //Properties
     public bool outpostCaptureIsObjective = false;
-    public int outpostHealth = 30;
+    public int outpostHealth = 8;
 
 
     //Variables
@@ -127,9 +127,10 @@ public class OutpostObjective : MonoBehaviour
     void SetOutpostHealth(){
         foreach (OutpostGroup g in outpostGroups){
             g.health = outpostHealth;
-            HealthBar outpostHealthBar = g.outpostObject.GetComponent<HealthBar>();
-            outpostHealthBar.maxHealth = outpostHealth;
-            outpostHealthBar.SetMaxHealth(outpostHealth);
+            // HealthBar outpostHealthBar = g.outpostObject.GetComponent<HealthBar>();
+            // outpostHealthBar.maxHealth = outpostHealth;
+            // outpostHealthBar.SetMaxHealth(outpostHealth);
+            g.outpostObject.GetComponent<Outpost>().InitialiseHealthBar(outpostHealth);
         }
     }
 
