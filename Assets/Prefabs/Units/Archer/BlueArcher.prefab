@@ -61,7 +61,7 @@ MonoBehaviour:
   movementRange: 5
   movePoints: 0
   moveSound: {fileID: 8300000, guid: aca7ef2d65eb40847ad982392def3074, type: 3}
-  defaultStartCoordinates: {x: 0, y: 0}
+  defaultStartCoordinates: {x: 19, y: 2}
   startCell: {fileID: 0}
   currentCell: {fileID: 0}
   isAttacking: 0
@@ -213,7 +213,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8ddc35788f5ac2499f6a6d1ff1679dc, type: 2}
+  - {fileID: 2100000, guid: 1d6672beebe95b5468768e3a193d0071, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
