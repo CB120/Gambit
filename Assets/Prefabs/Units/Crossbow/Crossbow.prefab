@@ -174,6 +174,7 @@ MonoBehaviour:
   unitType: 2
   isAIControlled: 0
   selectedUI: {fileID: 2321692205429488392}
+  healthSquareBar: {fileID: 378732009486374538}
   UICanvas: {fileID: 5051918756357402500}
   spawnPS: {fileID: 5785021667225969199, guid: 8c96dd32ab49eec419bfc6ab7a425af3, type: 3}
   informationText: 'crossbow units deal significant damage at <color=#FF8600>close
@@ -706,6 +707,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &378732009486374538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7548058325781301365, guid: 6a00cf3abbdd9b34ca08114f805f220c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7890748344109014783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f972987375ff45b0c63322de5ea1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5051918756357402500 stripped

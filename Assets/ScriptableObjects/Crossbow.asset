@@ -17,8 +17,8 @@ MonoBehaviour:
   unitDescription: 'crossbow units deal significant damage at <color=#FF8600>close
     range</color>. this unit will do <color=#FF8600>less damage</color> to units
     that are <color=#FF8600>lower</color>  or <color=#FF8600>further away</color> '
-  health: 20
-  damage: 13
+  health: 6
+  damage: 3
   range: 5
   movementRange: 8
   icon: {fileID: 21300000, guid: 3a85f45efc942dd4a8c79ed15105a4e6, type: 3}

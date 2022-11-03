@@ -15,7 +15,7 @@ MonoBehaviour:
   unitType: 5
   unitName: Catapult
   unitDescription: 
-  health: 35
+  health: 10
   damage: 100
   range: 100
   movementRange: 4
