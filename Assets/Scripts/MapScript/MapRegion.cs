@@ -10,14 +10,7 @@ public class MapRegion : MonoBehaviour
     public Button button;
 
     [Header("Details")]
-    public string mapName;
-    public int unitAmount;
-    public int enemyAmount;
+    public Map_SO mapData;
     public bool isUnlocked;
-    public string levelName;
-    void Start()
-    {
-        
-    }
 
 }
