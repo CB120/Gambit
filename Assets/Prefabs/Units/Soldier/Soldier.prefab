@@ -195,7 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac1140032713c24ebc4acbd3e641047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overrideSquareBar: {fileID: 7779393685774842663}
   isUnit: 1
   maxHealth: 0
   slider: {fileID: 7979823587220760199}
