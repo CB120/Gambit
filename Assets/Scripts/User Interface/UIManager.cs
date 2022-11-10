@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     [Header("Level Information")]
     public int levelIndex;
     private static int thisLevelIndex;
+    [SerializeField] private Map_SO[] mapInfo;
 
 
     public void Awake()
@@ -37,6 +38,8 @@ public class UIManager : MonoBehaviour
         UIObj = interfaceObjects;
         isSkirmishModeActive = isSkirmishMode;
         isEndlessModeActive = isEndlessMode;
+        interfaceObjects.mapName.text = mapInfo[levelIndex].mapName;
+
         Time.timeScale = 1;
 
     }

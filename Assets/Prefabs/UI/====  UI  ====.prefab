@@ -5435,6 +5435,22 @@ MonoBehaviour:
   isSkirmishMode: 0
   isEndlessMode: 0
   levelIndex: 0
+  mapInfo:
+  - {fileID: 11400000, guid: 3b9fafd46dcfd7e4baac2bd024e9fc0c, type: 2}
+  - {fileID: 11400000, guid: e9801d464ebe0b0428e199ee7e57f598, type: 2}
+  - {fileID: 11400000, guid: 4acc4ebb39b63b441ab247fb66cd651c, type: 2}
+  - {fileID: 11400000, guid: 926428981ba0b884da5eeefd48d9dccb, type: 2}
+  - {fileID: 11400000, guid: 08f42e80f2c41a240969268552b0a174, type: 2}
+  - {fileID: 11400000, guid: 3b34cc780e487384780f52bbe13d259c, type: 2}
+  - {fileID: 11400000, guid: efa9acb2c347d604a8d94c357a718fb1, type: 2}
+  - {fileID: 11400000, guid: 0034c67b8866b934bb02a88ddcba171f, type: 2}
+  - {fileID: 11400000, guid: d740888d276ed2c47937e73ed6ee2cb6, type: 2}
+  - {fileID: 11400000, guid: ce3cad2dd9949924e8069373c9a51b83, type: 2}
+  - {fileID: 11400000, guid: be5b4eda64e3a7f47a5eafe76031a623, type: 2}
+  - {fileID: 11400000, guid: 6568077039de9cc4daef075cd6aa8d88, type: 2}
+  - {fileID: 11400000, guid: 3c0d4f06cb2ef4046878976da1077787, type: 2}
+  - {fileID: 11400000, guid: 0cc7ceb4968949f49aabe210e5d92332, type: 2}
+  - {fileID: 11400000, guid: 890d4be4686c3974db0d2aff0306a9b7, type: 2}
 --- !u!114 &2302441000820814910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5484,6 +5500,7 @@ MonoBehaviour:
   outpostParentObj: {fileID: 8549485430158222689}
   outpostIndicator: {fileID: 3318981022720437184, guid: 3e8c304c3c9b2524095ae48a7e1ae9e1,
     type: 3}
+  mapName: {fileID: 651782041172834642}
 --- !u!114 &751917525222599817
 MonoBehaviour:
   m_ObjectHideFlags: 0
