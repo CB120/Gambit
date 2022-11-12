@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -349,11 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 72956668}
   button: {fileID: 72956664}
-  mapName: Map2
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: e9801d464ebe0b0428e199ee7e57f598, type: 2}
   isUnlocked: 0
-  levelName: Level2
 --- !u!95 &72956668
 Animator:
   serializedVersion: 4
@@ -428,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -523,11 +520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 92668586}
   button: {fileID: 92668582}
-  mapName: Map6
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 3b34cc780e487384780f52bbe13d259c, type: 2}
   isUnlocked: 0
-  levelName: Level6
 --- !u!95 &92668586
 Animator:
   serializedVersion: 4
@@ -602,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -697,11 +691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 425971681}
   button: {fileID: 425971677}
-  mapName: Map11
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: be5b4eda64e3a7f47a5eafe76031a623, type: 2}
   isUnlocked: 0
-  levelName: Level11
 --- !u!95 &425971681
 Animator:
   serializedVersion: 4
@@ -1048,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1143,11 +1134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 680502220}
   button: {fileID: 680502216}
-  mapName: Map13
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 3c0d4f06cb2ef4046878976da1077787, type: 2}
   isUnlocked: 0
-  levelName: Level13
 --- !u!95 &680502220
 Animator:
   serializedVersion: 4
@@ -1222,7 +1210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1317,11 +1305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 744914744}
   button: {fileID: 744914740}
-  mapName: Map4
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 926428981ba0b884da5eeefd48d9dccb, type: 2}
   isUnlocked: 0
-  levelName: Level4
 --- !u!95 &744914744
 Animator:
   serializedVersion: 4
@@ -1396,7 +1381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1491,11 +1476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 830446949}
   button: {fileID: 830446945}
-  mapName: Map3
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 4acc4ebb39b63b441ab247fb66cd651c, type: 2}
   isUnlocked: 0
-  levelName: Level3
 --- !u!95 &830446949
 Animator:
   serializedVersion: 4
@@ -1707,7 +1689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1802,11 +1784,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1021319956}
   button: {fileID: 1021319952}
-  mapName: Map10
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: ce3cad2dd9949924e8069373c9a51b83, type: 2}
   isUnlocked: 0
-  levelName: Level10
 --- !u!95 &1021319956
 Animator:
   serializedVersion: 4
@@ -1948,7 +1927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2063,11 +2042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1025240234}
   button: {fileID: 1025240231}
-  mapName: Map1
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 3b9fafd46dcfd7e4baac2bd024e9fc0c, type: 2}
   isUnlocked: 0
-  levelName: Level1
 --- !u!1 &1093363675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,7 +2927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3046,11 +3022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1578660744}
   button: {fileID: 1578660740}
-  mapName: Map7
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: efa9acb2c347d604a8d94c357a718fb1, type: 2}
   isUnlocked: 0
-  levelName: Level7
 --- !u!95 &1578660744
 Animator:
   serializedVersion: 4
@@ -3397,7 +3370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3492,11 +3465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1763970765}
   button: {fileID: 1763970761}
-  mapName: Map9
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: d740888d276ed2c47937e73ed6ee2cb6, type: 2}
   isUnlocked: 0
-  levelName: Level9
 --- !u!95 &1763970765
 Animator:
   serializedVersion: 4
@@ -3707,7 +3677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3802,11 +3772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1812321679}
   button: {fileID: 1812321675}
-  mapName: Map12
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 6568077039de9cc4daef075cd6aa8d88, type: 2}
   isUnlocked: 0
-  levelName: Level12
 --- !u!95 &1812321679
 Animator:
   serializedVersion: 4
@@ -4019,7 +3986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4114,11 +4081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1881462874}
   button: {fileID: 1881462870}
-  mapName: Map8
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 0034c67b8866b934bb02a88ddcba171f, type: 2}
   isUnlocked: 0
-  levelName: Level8
 --- !u!95 &1881462874
 Animator:
   serializedVersion: 4
@@ -4193,7 +4157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4288,11 +4252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1890230686}
   button: {fileID: 1890230682}
-  mapName: Map14
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 0cc7ceb4968949f49aabe210e5d92332, type: 2}
   isUnlocked: 0
-  levelName: Level14
 --- !u!95 &1890230686
 Animator:
   serializedVersion: 4
@@ -4817,7 +4778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4912,11 +4873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2060906058}
   button: {fileID: 2060906054}
-  mapName: Map5
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 08f42e80f2c41a240969268552b0a174, type: 2}
   isUnlocked: 0
-  levelName: Level5
 --- !u!95 &2060906058
 Animator:
   serializedVersion: 4
@@ -5001,7 +4959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5086,11 +5044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2083599452}
   button: {fileID: 2083599448}
-  mapName: Map15
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 890d4be4686c3974db0d2aff0306a9b7, type: 2}
   isUnlocked: 0
-  levelName: Level15
 --- !u!95 &2083599452
 Animator:
   serializedVersion: 4

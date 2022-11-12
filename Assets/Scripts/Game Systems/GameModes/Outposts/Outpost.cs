@@ -22,13 +22,18 @@ public class Outpost : MonoBehaviour
 
     public List<GameObject> outlineModels = new List<GameObject>(); //Sorry for not doing it recursively, there was a bug and I was too tired to solve it
 
-    HealthBar healthBarScript;
+    // HealthBar healthBarScript; old health bar
+    [SerializeField] HealthSquareBar healthSquareBar;
 
 
     //Methods
         //Engine-called
     void Awake(){
-        healthBarScript = GetComponent<HealthBar>();
+        // healthBarScript = GetComponent<HealthBar>();
+    }
+
+    public void InitialiseHealthBar(int maxHealth) {
+        healthSquareBar.Initialise(maxHealth);
     }
 
 
@@ -62,7 +67,8 @@ public class Outpost : MonoBehaviour
             //Misc.
     public void ShowHealthBar(int health){
         ActivateAnimation();
-        healthBarScript.SetHealth(health);
+        // healthBarScript.SetHealth(health);
+        healthSquareBar.SetHealth(health);
         healthBar.SetActive(true);
         Invoke("HideHealthBar", 5f);
     }
@@ -72,7 +78,8 @@ public class Outpost : MonoBehaviour
     }
 
     public void SetMaxHealth(int maxHealth){
-        healthBarScript.SetMaxHealth(maxHealth);
+        // healthBarScript.SetMaxHealth(maxHealth);
+        healthSquareBar.SetMaxHealth(maxHealth);
     }
 
 

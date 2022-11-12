@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8ddc35788f5ac2499f6a6d1ff1679dc, type: 2}
+  - {fileID: 2100000, guid: 1d6672beebe95b5468768e3a193d0071, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
   unitType: 4
   isAIControlled: 0
   selectedUI: {fileID: 2817661689847627860}
+  healthSquareBar: {fileID: 6541140885297105235}
   UICanvas: {fileID: 1845155800796541021}
   spawnPS: {fileID: 5785021667225969199, guid: 8c96dd32ab49eec419bfc6ab7a425af3, type: 3}
   informationText: A Mage's attack <color=#FF8600>chains between enemies</color>
@@ -427,6 +428,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6541140885297105235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7548058325781301365, guid: 6a00cf3abbdd9b34ca08114f805f220c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3604810396431860006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f972987375ff45b0c63322de5ea1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6885228586974713075 stripped

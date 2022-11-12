@@ -173,6 +173,7 @@ MonoBehaviour:
   unitType: 3
   isAIControlled: 0
   selectedUI: {fileID: 7350452312583296881}
+  healthSquareBar: {fileID: 5615100693176511760}
   UICanvas: {fileID: 1058728278917141534}
   spawnPS: {fileID: 5785021667225969199, guid: 8c96dd32ab49eec419bfc6ab7a425af3, type: 3}
   informationText: cavalry units are able to<color=#FF8600> move significantly further</color>
@@ -412,6 +413,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5615100693176511760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7548058325781301365, guid: 6a00cf3abbdd9b34ca08114f805f220c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2678743867167745381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f972987375ff45b0c63322de5ea1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3518203311056365289

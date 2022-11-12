@@ -14,7 +14,8 @@ public class UIObjects : MonoBehaviour
     public Image HUDportrait;
     public Button HUDEndTurn;
     public Button HUDEnterAttackButton;
-    public HealthBar healthBar;
+    // public HealthBar healthBar; DEPRECATED
+    public HealthSquareBar healthSquareBar;
     public GameObject ObjectiveCanvasObj;
     public GameObject settingsScreen;
     public TextMeshProUGUI objectiveTitle;
@@ -46,5 +47,8 @@ public class UIObjects : MonoBehaviour
     [Header("Outposts")]
     public GameObject outpostParentObj;
     public GameObject outpostIndicator;
+
+    [Header("World")]
+    public TextMeshProUGUI mapName;
 
 }

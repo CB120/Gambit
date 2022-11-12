@@ -11,8 +11,10 @@ public class UnitInfoMenu : MonoBehaviour
     [SerializeField] private Button[] unitButtons;
     [SerializeField] private Button selectedButton;
     [SerializeField] private TextMeshProUGUI description;
-    [SerializeField] private TextMeshProUGUI health;
-    [SerializeField] private TextMeshProUGUI damage;
+    // [SerializeField] private TextMeshProUGUI health; // Deprecated, use healthSquares instead.
+    [SerializeField] private HealthSquareBar healthSquares;
+    // [SerializeField] private TextMeshProUGUI damage;
+    [SerializeField] private HealthSquareBar damageSquares;
     [SerializeField] private TextMeshProUGUI attackRange;
     [SerializeField] private TextMeshProUGUI movementRange;
     [SerializeField] private Image icon;
@@ -45,8 +47,10 @@ public class UnitInfoMenu : MonoBehaviour
         selectedButton.image.color = selected;
 
         description.text = unitProperties[i].unitDescription;
-        health.text = unitProperties[i].health.ToString();
-        damage.text = unitProperties[i].damage.ToString();
+        // health.text = unitProperties[i].health.ToString();
+        healthSquares.Initialise(unitProperties[i].health);
+        // damage.text = unitProperties[i].damage.ToString();
+        damageSquares.Initialise((int)unitProperties[i].damage);
         attackRange.text = unitProperties[i].range.ToString();
         movementRange.text = unitProperties[i].movementRange.ToString();
         icon.sprite = unitProperties[i].icon;

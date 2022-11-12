@@ -62,7 +62,7 @@ MonoBehaviour:
   movementRange: 5
   movePoints: 0
   moveSound: {fileID: 8300000, guid: aca7ef2d65eb40847ad982392def3074, type: 3}
-  defaultStartCoordinates: {x: 0, y: 0}
+  defaultStartCoordinates: {x: 3, y: 18}
   startCell: {fileID: 0}
   currentCell: {fileID: 0}
   isAttacking: 0
@@ -71,6 +71,7 @@ MonoBehaviour:
   unitType: 1
   isAIControlled: 1
   selectedUI: {fileID: 2502704136069135162}
+  healthSquareBar: {fileID: 7677668565166122716}
   UICanvas: {fileID: 3013204434629517266}
   spawnPS: {fileID: 5785021667225969199, guid: 8c96dd32ab49eec419bfc6ab7a425af3, type: 3}
   informationText: Archers <color=#FF8600> range increases</color> depending on their 
@@ -180,7 +181,7 @@ GameObject:
   - component: {fileID: 5539090901917585968}
   - component: {fileID: 722407926519299263}
   - component: {fileID: 4112078220679719066}
-  - component: {fileID: 5265861718142035642}
+  - component: {fileID: 1017571544}
   m_Layer: 0
   m_Name: Exclamation
   m_TagString: Untagged
@@ -231,7 +232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8ddc35788f5ac2499f6a6d1ff1679dc, type: 2}
+  - {fileID: 2100000, guid: 1d6672beebe95b5468768e3a193d0071, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,7 +254,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &5265861718142035642
+--- !u!95 &1017571544
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -451,6 +452,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 165676540732321449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7677668565166122716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7548058325781301365, guid: 6a00cf3abbdd9b34ca08114f805f220c,
+    type: 3}
+  m_PrefabInstance: {fileID: 165676540732321449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06f972987375ff45b0c63322de5ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8054543832567380860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7893654694311679445, guid: 6a00cf3abbdd9b34ca08114f805f220c,
@@ -755,6 +768,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4440281144826231986, guid: 828b338408beb304ca5c9949febf8607,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.275
+      objectReference: {fileID: 0}
     - target: {fileID: 4838320100739875194, guid: 828b338408beb304ca5c9949febf8607,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -999,6 +1017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 90210042014956231, guid: 96ad95202bc2a804e9d34f44b2d562c3,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 429183746381901108, guid: 96ad95202bc2a804e9d34f44b2d562c3,
         type: 3}

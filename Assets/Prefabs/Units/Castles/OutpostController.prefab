@@ -62,7 +62,12 @@ MonoBehaviour:
   spawnRate: 2
   spawnCoordinates: []
   turnCounter: 0
+  unitsSpawned: 0
   spawnSoundEffect: {fileID: 8300000, guid: 1862e953b1777a04cb474e6ad0c28d95, type: 3}
+  AIParticipant: {fileID: 0}
+  AIManager: {fileID: 0}
+  isProcedural: 0
+  unitController: {fileID: 0}
 --- !u!114 &4147181911127351922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outpostCaptureIsObjective: 0
-  outpostHealth: 30
+  outpostHealth: 8
   damageTextPrefab: {fileID: 4294042367897153499, guid: f7cc1d20526ef06459bbe8cb8cde4433,
     type: 3}
   isProcedurallyGenerated: 0
