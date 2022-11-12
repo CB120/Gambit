@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NewCameraMovement : MonoBehaviour
 {
+    static NewCameraMovement Instance;
     static Vector3 panPosition;
 
     [SerializeField] Transform rotationPivot;
@@ -30,6 +31,11 @@ public class NewCameraMovement : MonoBehaviour
 
     float oldPinchDistance = -1f; //-1 is a sentinal value
     bool pinchInProgress = false;
+    [SerializeField] float cellHeightOffset = 1;
+
+    private void Awake() {
+        Instance = this;
+    }
 
     void Start() {
         panPosition = transform.position;
@@ -146,6 +152,12 @@ public class NewCameraMovement : MonoBehaviour
     public static void JumpToCell (Cell c) {
         panPosition.x = c.transform.position.x;
         panPosition.z = c.transform.position.z;
+
+        // Slight bodge here to make it so the elevation of cells is compensated for
+        // Without this the camera always moves to focus on where the cell would be at 0 height, which can be off-screen especially at mobile-style zoom levels
+        float offsetAmount = c.height * Instance.cellHeightOffset;
+        panPosition.x += offsetAmount;
+        panPosition.z += offsetAmount;
     }
 
     public static void JumpToCell(Vector2Int coordinates){
