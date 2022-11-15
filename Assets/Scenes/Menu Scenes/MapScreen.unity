@@ -148,19 +148,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72364046}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1249762366}
-  m_Father: {fileID: 2069668878}
-  m_RootOrder: 0
+  m_Father: {fileID: 2030495384}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &72364048
 MonoBehaviour:
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -349,11 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 72956668}
   button: {fileID: 72956664}
-  mapName: Map2
-  unitAmount: 4
-  enemyAmount: 3
+  mapData: {fileID: 11400000, guid: e9801d464ebe0b0428e199ee7e57f598, type: 2}
   isUnlocked: 0
-  levelName: Green2
 --- !u!95 &72956668
 Animator:
   serializedVersion: 4
@@ -428,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -523,11 +520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 92668586}
   button: {fileID: 92668582}
-  mapName: Map6
-  unitAmount: 5
-  enemyAmount: 9
+  mapData: {fileID: 11400000, guid: 3b34cc780e487384780f52bbe13d259c, type: 2}
   isUnlocked: 0
-  levelName: Forest2
 --- !u!95 &92668586
 Animator:
   serializedVersion: 4
@@ -602,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -697,11 +691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 425971681}
   button: {fileID: 425971677}
-  mapName: Map11
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: be5b4eda64e3a7f47a5eafe76031a623, type: 2}
   isUnlocked: 0
-  levelName: Snow1
 --- !u!95 &425971681
 Animator:
   serializedVersion: 4
@@ -1009,7 +1000,7 @@ GameObject:
   - component: {fileID: 680502216}
   - component: {fileID: 680502220}
   m_Layer: 5
-  m_Name: 13 - Doesn't Exist
+  m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1143,11 +1134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 680502220}
   button: {fileID: 680502216}
-  mapName: Map13
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 3c0d4f06cb2ef4046878976da1077787, type: 2}
   isUnlocked: 0
-  levelName: Water
 --- !u!95 &680502220
 Animator:
   serializedVersion: 4
@@ -1222,7 +1210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1317,11 +1305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 744914744}
   button: {fileID: 744914740}
-  mapName: Map4
-  unitAmount: 3
-  enemyAmount: 3
+  mapData: {fileID: 11400000, guid: 926428981ba0b884da5eeefd48d9dccb, type: 2}
   isUnlocked: 0
-  levelName: Swamp2
 --- !u!95 &744914744
 Animator:
   serializedVersion: 4
@@ -1396,7 +1381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1491,11 +1476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 830446949}
   button: {fileID: 830446945}
-  mapName: Map3
-  unitAmount: 4
-  enemyAmount: 4
+  mapData: {fileID: 11400000, guid: 4acc4ebb39b63b441ab247fb66cd651c, type: 2}
   isUnlocked: 0
-  levelName: Swamp1
 --- !u!95 &830446949
 Animator:
   serializedVersion: 4
@@ -1575,7 +1557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1707,7 +1689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1802,11 +1784,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1021319956}
   button: {fileID: 1021319952}
-  mapName: Map10
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: ce3cad2dd9949924e8069373c9a51b83, type: 2}
   isUnlocked: 0
-  levelName: Mesa2
 --- !u!95 &1021319956
 Animator:
   serializedVersion: 4
@@ -1948,7 +1927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2063,11 +2042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1025240234}
   button: {fileID: 1025240231}
-  mapName: Map1
-  unitAmount: 3
-  enemyAmount: 3
-  isUnlocked: 1
-  levelName: Green1
+  mapData: {fileID: 11400000, guid: 3b9fafd46dcfd7e4baac2bd024e9fc0c, type: 2}
+  isUnlocked: 0
 --- !u!1 &1093363675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,7 +2070,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093363675}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2119,7 +2095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125, y: -49.999985}
+  m_AnchoredPosition: {x: 125, y: -50}
   m_SizeDelta: {x: 640, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093363677
@@ -2261,7 +2237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2338,7 +2314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2589,7 +2565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2632,19 +2608,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424400992}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1787430868}
-  m_Father: {fileID: 2069668878}
-  m_RootOrder: 1
+  m_Father: {fileID: 2030495384}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 325, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1424400994
 MonoBehaviour:
@@ -2666,7 +2642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2743,7 +2719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78f16cb079944a6428d81720a588520a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a77f1fd35c514f24798760c2c09afb7b, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2951,7 +2927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3046,11 +3022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1578660744}
   button: {fileID: 1578660740}
-  mapName: Map7
-  unitAmount: 5
-  enemyAmount: 3
+  mapData: {fileID: 11400000, guid: efa9acb2c347d604a8d94c357a718fb1, type: 2}
   isUnlocked: 0
-  levelName: Desert1
 --- !u!95 &1578660744
 Animator:
   serializedVersion: 4
@@ -3397,7 +3370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3492,11 +3465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1763970765}
   button: {fileID: 1763970761}
-  mapName: Map9
-  unitAmount: 3
-  enemyAmount: 5
+  mapData: {fileID: 11400000, guid: d740888d276ed2c47937e73ed6ee2cb6, type: 2}
   isUnlocked: 0
-  levelName: Mesa1
 --- !u!95 &1763970765
 Animator:
   serializedVersion: 4
@@ -3603,7 +3573,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.75
+  m_fontSize: 51.75
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3639,7 +3609,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 25.576248, y: 31.266754, z: 20.365417, w: 33.677845}
+  m_margin: {x: 25.576248, y: 18.502373, z: 20.365417, w: 22.693949}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3707,7 +3677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3802,11 +3772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1812321679}
   button: {fileID: 1812321675}
-  mapName: Map12
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 6568077039de9cc4daef075cd6aa8d88, type: 2}
   isUnlocked: 0
-  levelName: Snow2
 --- !u!95 &1812321679
 Animator:
   serializedVersion: 4
@@ -4019,7 +3986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4114,11 +4081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1881462874}
   button: {fileID: 1881462870}
-  mapName: Map8
-  unitAmount: 4
-  enemyAmount: 4
+  mapData: {fileID: 11400000, guid: 0034c67b8866b934bb02a88ddcba171f, type: 2}
   isUnlocked: 0
-  levelName: Desert2
 --- !u!95 &1881462874
 Animator:
   serializedVersion: 4
@@ -4154,7 +4118,7 @@ GameObject:
   - component: {fileID: 1890230682}
   - component: {fileID: 1890230686}
   m_Layer: 5
-  m_Name: 14- Doesn't Exist
+  m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4193,7 +4157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4288,11 +4252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1890230686}
   button: {fileID: 1890230682}
-  mapName: Map14
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 0cc7ceb4968949f49aabe210e5d92332, type: 2}
   isUnlocked: 0
-  levelName: Rose
 --- !u!95 &1890230686
 Animator:
   serializedVersion: 4
@@ -4346,7 +4307,7 @@ RectTransform:
   m_Children:
   - {fileID: 591251400}
   m_Father: {fileID: 2030495384}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4471,7 +4432,7 @@ RectTransform:
   - {fileID: 1371445611}
   - {fileID: 2115694095}
   m_Father: {fileID: 2030495384}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -4711,7 +4672,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4751,7 +4712,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1093363676}
-  - {fileID: 2069668878}
+  - {fileID: 72364047}
+  - {fileID: 1424400993}
   - {fileID: 1939756103}
   - {fileID: 1900272353}
   m_Father: {fileID: 0}
@@ -4777,7 +4739,7 @@ GameObject:
   - component: {fileID: 2060906054}
   - component: {fileID: 2060906058}
   m_Layer: 5
-  m_Name: 5-Doesn't Exist
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4816,7 +4778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4911,11 +4873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2060906058}
   button: {fileID: 2060906054}
-  mapName: Map5
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 08f42e80f2c41a240969268552b0a174, type: 2}
   isUnlocked: 0
-  levelName: Forest1
 --- !u!95 &2060906058
 Animator:
   serializedVersion: 4
@@ -4936,71 +4895,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &2069668877
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2069668878}
-  - component: {fileID: 2069668879}
-  m_Layer: 5
-  m_Name: Header
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2069668878
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069668877}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 72364047}
-  - {fileID: 1424400993}
-  m_Father: {fileID: 2030495384}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!114 &2069668879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069668877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &2083599446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,7 +4910,7 @@ GameObject:
   - component: {fileID: 2083599448}
   - component: {fileID: 2083599452}
   m_Layer: 5
-  m_Name: 15- Doesn't Exist
+  m_Name: 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5065,7 +4959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5150,11 +5044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2083599452}
   button: {fileID: 2083599448}
-  mapName: Map15
-  unitAmount: 0
-  enemyAmount: 0
+  mapData: {fileID: 11400000, guid: 890d4be4686c3974db0d2aff0306a9b7, type: 2}
   isUnlocked: 0
-  levelName: Volcano
 --- !u!95 &2083599452
 Animator:
   serializedVersion: 4

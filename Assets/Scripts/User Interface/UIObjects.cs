@@ -48,4 +48,7 @@ public class UIObjects : MonoBehaviour
     public GameObject outpostParentObj;
     public GameObject outpostIndicator;
 
+    [Header("World")]
+    public TextMeshProUGUI mapName;
+
 }
