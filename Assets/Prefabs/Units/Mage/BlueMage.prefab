@@ -186,10 +186,10 @@ MonoBehaviour:
   maxDamagedEnemies: 5
   enableDamageDropoff: 1
   damageInChain:
-  - 10
-  - 8
-  - 6
-  - 5
+  - 3
+  - 2
+  - 1
+  - 1
   lightning: {fileID: 4933265908129847262, guid: f82fc2753ac597d4282879398280caa8,
     type: 3}
 --- !u!114 &6394341659665960705
