@@ -192,6 +192,7 @@ MonoBehaviour:
   zoomSpeed: 10
   lerpSpeed: 30
   touchscreenPinchMultiplier: 0.0005
+  dragYMinimumThreshold: 60
   rotationPositionNormalised: 0
 --- !u!114 &-3380029935735328751
 MonoBehaviour:
