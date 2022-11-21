@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using Saving;
 public class MapController : MonoBehaviour
 {
     public MapRegion[] regions;
@@ -14,16 +14,18 @@ public class MapController : MonoBehaviour
     void Start()
     {
         int max = regions.Length;
-        int lastMapUnlocked = SaveSystem.GetLatestUnlockedLevel();
-        for(int i = 0; i < (lastMapUnlocked <= max ? lastMapUnlocked : max); i++)
+        //int lastMapUnlocked = SaveSystem.GetLatestUnlockedLevel();
+        Debug.Log(SavedData.gameData);
+        int lastMapUnlocked = SavedData.gameData.levelsCompleted;
+        for (int i = 0; i < (lastMapUnlocked + 1 <= max ? lastMapUnlocked + 1 : max); i++)
         {
             Button b = regions[i].button;
             b.colors = cb;
             b.interactable = true;
         }
 
-        regions[lastMapUnlocked - 1].animator.enabled = true;
-        UpdateText(lastMapUnlocked - 1);
+        regions[lastMapUnlocked].animator.enabled = true;
+        UpdateText(lastMapUnlocked);
         mtb.progress.text = $"{lastMapUnlocked}/15";
     }
 
