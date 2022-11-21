@@ -27,11 +27,12 @@ public class NewCameraMovement : MonoBehaviour
     int rotationPosition = 0; //used for the rotation calculation of rotationPivot (and can go negative)
     [HideInInspector] public int rotationPositionNormalised = 0; //used for the rotation of the health bars (limited between 0-3, wraps)
 
+    [SerializeField] float cellHeightOffset = 1;
+
     float targetCameraSize;
 
     float oldPinchDistance = -1f; //-1 is a sentinal value
     bool pinchInProgress = false;
-    [SerializeField] float cellHeightOffset = 1;
 
     private void Awake() {
         Instance = this;
@@ -67,8 +68,17 @@ public class NewCameraMovement : MonoBehaviour
         // Handle mouse input after sexy lerped stuff cause the mouse feels weird with that cringe shit
         if (Input.GetKey(KeyCode.Mouse0) && Input.touchCount < 2 && !pinchInProgress) {
             Vector2 mouseInput = new Vector2(-Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y")) * mousePanSpeed;
-            TranslateCameraMouse(mouseInput);
-            transform.position = targetPanPosition; 
+            if (Input.touchCount == 0)
+            {
+                TranslateCameraMouse(mouseInput);
+            }
+            else
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                if (mousePosition.y >= dragYMinimumThreshold) TranslateCameraMouse(mouseInput);
+            }
+
+            transform.position = targetPanPosition;
         }
     }
 
