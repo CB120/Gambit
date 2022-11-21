@@ -22,6 +22,7 @@ public class NewCameraMovement : MonoBehaviour
     [SerializeField] float lerpSpeed = 0.5f;
 
     [SerializeField] float touchscreenPinchMultiplier = 0.5f;
+    [SerializeField] float dragYMinimumThreshold = 60f;
 
     // 0 is default, 1, 2, 3 are 90 degree increments rotating clockwise across the map.
     int rotationPosition = 0; //used for the rotation calculation of rotationPivot (and can go negative)
