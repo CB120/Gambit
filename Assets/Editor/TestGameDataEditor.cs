@@ -12,7 +12,7 @@ public class TestGameDataEditor : Editor
 
         if (GUILayout.Button("Assign"))
         {
-            SavedData.gameData = data.gameData;
+            SavedData.GameData = data.gameData;
         }
         if (GUILayout.Button("Store"))
         {

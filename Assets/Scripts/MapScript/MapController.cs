@@ -15,8 +15,8 @@ public class MapController : MonoBehaviour
     {
         int max = regions.Length;
         //int lastMapUnlocked = SaveSystem.GetLatestUnlockedLevel();
-        Debug.Log(SavedData.gameData);
-        int lastMapUnlocked = SavedData.gameData.levelsCompleted;
+        Debug.Log(SavedData.GameData);
+        int lastMapUnlocked = SavedData.GameData.levelsCompleted;
         for (int i = 0; i < (lastMapUnlocked + 1 <= max ? lastMapUnlocked + 1 : max); i++)
         {
             Button b = regions[i].button;

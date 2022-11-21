@@ -10,7 +10,7 @@ public class TestGameData : MonoBehaviour
 
     private void Start()
     {
-        gameData = SavedData.gameData;
+        gameData = SavedData.GameData;
     }
 
     public void Load()
