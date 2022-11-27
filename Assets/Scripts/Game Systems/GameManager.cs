@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Saving;
 public enum GameMode
 {
     DefeatAll,
@@ -11,17 +11,29 @@ public enum GameMode
 public class GameManager : MonoBehaviour
 {
     //Properties
-
+    static bool applicationStarted;
 
     //Variables
     public static GameMode gameMode;
 
     //References
     static GameManager singleton;
- 
 
+    private void Awake()
+    {
+        if (!applicationStarted)
+        {
+            SavedData.LoadGameData();
+            applicationStarted = true;
+        }
+    }
     void Start(){
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void OnApplicationQuit() // Stores Game Data
+    {
+        SavedData.StoreGameData();
     }
 
     public static int UpdateAIDifficulty()

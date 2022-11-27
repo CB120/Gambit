@@ -1,0 +1,10 @@
+{
+  "levelsCompleted": 13,
+  "playtime": "",
+  "wins": 0,
+  "losses": 0,
+  "kills": 0,
+  "deaths": 0,
+  "skirmishHighScore": 0,
+  "endlessHighScore": 0
+}

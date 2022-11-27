@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using Saving;
 public class UIManager : MonoBehaviour
 {
     [Header("Objects")]
@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
 
     public void Awake()
     {
+        thisLevelIndex = levelIndex;
         UIObj = interfaceObjects;
         isSkirmishModeActive = isSkirmishMode;
         isEndlessModeActive = isEndlessMode;
@@ -251,8 +252,9 @@ public class UIManager : MonoBehaviour
         else
         {
             transitionAnimator.SetTrigger("Win");
-            SaveSystem.FinishedALevel(thisLevelIndex);
-            SaveSystem.AddToPlayerStats("wins", 1);
+            SavedData.CompleteLevel(thisLevelIndex);
+            //SaveSystem.FinishedALevel(thisLevelIndex);
+            //SaveSystem.AddToPlayerStats("wins", 1);
             if (!isSkirmishModeActive && !isEndlessModeActive)
             {
                 GameObject.FindObjectOfType<SceneController>().Invoke("LoadNextLevel", 3.5f);
