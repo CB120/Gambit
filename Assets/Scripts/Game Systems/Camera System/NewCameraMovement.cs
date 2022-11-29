@@ -142,6 +142,7 @@ public class NewCameraMovement : MonoBehaviour
 
     void TranslateCameraKeyboard() {
         Vector2 movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        movement *= Time.deltaTime;
         movement *= panSpeed;
         Vector3 translation = new Vector3(movement.y + movement.x, 0, movement.y - movement.x);
         panPosition += rotationPivot.TransformVector(translation);
