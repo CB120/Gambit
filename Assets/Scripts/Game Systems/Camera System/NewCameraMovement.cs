@@ -38,7 +38,7 @@ public class NewCameraMovement : MonoBehaviour
         targetCameraSize = Camera.main.fieldOfView;
     }
 
-    void Update () {
+    public virtual void Update () {
         if (UIManager.isPaused) return; //GUARD to prevent camera movement when the game is paused
 
         if (Input.GetKeyDown(KeyCode.Q)) RotateSnapped(true);
