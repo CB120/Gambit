@@ -15,5 +15,8 @@ namespace Saving
         public int deaths;
         public int skirmishHighScore;
         public int endlessHighScore;
+
+        bool hasUnlockedSkirmish;
+        bool hasUnlockedEndless;
     }
 }
