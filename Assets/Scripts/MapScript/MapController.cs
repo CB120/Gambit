@@ -49,6 +49,11 @@ public class MapController : MonoBehaviour
         SceneLoader.LoadScene($"{regions[index].mapData.levelName}");   
     }
 
+    public void ReturnToMenu()
+    {
+        SceneLoader.LoadScene("MainMenu");
+    }
+
     [System.Serializable]
     public struct MapTextBlocks
     {
