@@ -226,7 +226,7 @@ public class GenerateProcedurally : MonoBehaviour
         GameManager.gameMode = this.gameMode.type;
         mapGenerator._mapWidth = mapSize;
         mapGenerator._mapHeight = mapSize;
-        gridGenerator.width = mapSize;
+        gridGenerator.height = mapSize;
         gridGenerator.height = mapSize;
         heightMap = Noise.GenerateNoiseMap(mapSize, mapSize, mapGenerator._seed, defaultSettings.noiseScale, defaultSettings.octaves,
             defaultSettings.persistance, defaultSettings.lacunarity, defaultSettings.offset);
@@ -497,7 +497,7 @@ public class GenerateProcedurally : MonoBehaviour
 
         mapGenerator._mapHeight = mapSize;
         mapGenerator._mapWidth = mapSize;
-        gridGenerator.width = mapSize;
+        gridGenerator.height = mapSize;
         gridGenerator.height = mapSize;
         heightMap = Noise.GenerateNoiseMap(mapSize, mapSize, mapGenerator._seed, defaultSettings.noiseScale, defaultSettings.octaves,
             defaultSettings.persistance, defaultSettings.lacunarity, defaultSettings.offset);

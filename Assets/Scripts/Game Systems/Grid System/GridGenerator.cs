@@ -19,8 +19,8 @@ public class OutpostGroup
 public class GridGenerator : MonoBehaviour
 {
     [SerializeField] GameObject cellPrefab;
-    [SerializeField] public int width;
     [SerializeField] public int height;
+    [SerializeField] public int width;
     [SerializeField] float spacing;
     [SerializeField] public float waterHeight = 0.2f;
     public List<Cell> cells;
@@ -35,14 +35,14 @@ public class GridGenerator : MonoBehaviour
         cells.Clear();
         for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < height; x++)
             {
                 if (!(MapGenerator.globalHeightMap[y, x] <= mapGenerator._regions[0].height))
                 {
                     if (!coordinateBlacklist.Contains(new Vector2Int(x, y))){
                         GameObject cell = Instantiate(
                             cellPrefab,
-                            new Vector3(x * spacing - ((width - 1) * spacing) / 2,
+                            new Vector3(x * spacing - ((height - 1) * spacing) / 2,
                             GetHeight(y, x),
                             y * spacing - ((height - 1) * spacing) / 2),
                             Quaternion.identity,

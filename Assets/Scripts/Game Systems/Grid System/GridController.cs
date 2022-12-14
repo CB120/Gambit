@@ -70,7 +70,7 @@ public class GridController : MonoBehaviour
         Singleton = this;
         cells = new List<Cell>();
         GridGenerator generator = GetComponent<GridGenerator>();
-        grid = new Cell[generator.width, generator.height];
+        grid = new Cell[generator.height, generator.height];
 
         foreach (Transform c in transform)
         {
