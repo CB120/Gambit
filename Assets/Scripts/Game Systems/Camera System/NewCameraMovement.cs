@@ -7,8 +7,8 @@ public class NewCameraMovement : MonoBehaviour
     static NewCameraMovement Instance;
     static Vector3 panPosition;
 
-    [SerializeField] Transform rotationPivot;
-
+    public Transform rotationPivot;
+    
     [SerializeField] float maxPan;
     [SerializeField] float maxZoom;
     [SerializeField] float minZoom;
@@ -29,6 +29,7 @@ public class NewCameraMovement : MonoBehaviour
 
     float targetCameraSize;
 
+    [SerializeField] bool BossLevel = false;
     private void Awake() {
         Instance = this;
     }
@@ -38,7 +39,7 @@ public class NewCameraMovement : MonoBehaviour
         targetCameraSize = Camera.main.fieldOfView;
     }
 
-    public virtual void Update () {
+    void Update () {
         if (UIManager.isPaused) return; //GUARD to prevent camera movement when the game is paused
 
         if (Input.GetKeyDown(KeyCode.Q)) RotateSnapped(true);
@@ -94,6 +95,11 @@ public class NewCameraMovement : MonoBehaviour
         //Changed code back as you can just do a check here to ensure the component is null, and when you click q and e the sprite wouldn't update
         SwitchImage switchImage = gameObject.GetComponent<SwitchImage>();
         if (switchImage) switchImage.ChangeSprite(clockwise);
+        if (BossLevel == true)
+        {
+            SwitchWallPerspective bossWalls = gameObject.GetComponent<SwitchWallPerspective>();
+            if (bossWalls) bossWalls.ChangePerspective(clockwise);
+        }
         rotationPosition += clockwise ? 1 : -1;
         UpdateRotationPositionNormalised(clockwise);
     }
@@ -114,6 +120,7 @@ public class NewCameraMovement : MonoBehaviour
         }
     }
 
+   
     void AdjustZoom (float delta) {
         targetCameraSize = Mathf.Clamp(targetCameraSize + delta * zoomSpeed, maxZoom, minZoom);
     }
