@@ -52,7 +52,8 @@ public class Unit : MonoBehaviour
         Crossbow,
         Cavalry,
         Mage,
-        Catapult
+        Catapult,
+        King
     }
 
     [Header("Type Settings")]
