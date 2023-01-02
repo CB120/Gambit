@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Saving;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -111,7 +112,7 @@ public class SaveSystem : MonoBehaviour
 
     public static void FlipDynamicDifficulty()
     {
-        dynamicDifficulty = !dynamicDifficulty;
+        SavedData.GameData.dynamicDifficultyEnabled = !SavedData.GameData.dynamicDifficultyEnabled;
     }
 
     //Call when deleting save files

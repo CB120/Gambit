@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Saving;
 
 public class DifficultySwitch : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class DifficultySwitch : MonoBehaviour
     public void OnEnable()
     {
         dropdown.value = SaveSystem.GetDifficulty();
-        if (SaveSystem.dynamicDifficulty == true)
+        if (SavedData.GameData.dynamicDifficultyEnabled)
         {
             difficultySwitchedOn = true;
         }

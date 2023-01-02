@@ -238,7 +238,7 @@ public class UIManager : MonoBehaviour
         {
 
             transitionAnimator.SetTrigger("Lose");
-            SaveSystem.AddToPlayerStats("losses", 1);
+            SavedData.GameData.losses += 1;
             if (!isSkirmishModeActive && !isEndlessModeActive)
                 GameObject.FindObjectOfType<SceneController>().Invoke("ReloadLevel", 4.75f);
             else if (isSkirmishModeActive)

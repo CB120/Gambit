@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Saving;
 
 public class Unit : MonoBehaviour
 {
@@ -249,10 +250,10 @@ public class Unit : MonoBehaviour
 
         if (!isAIControlled){
             UIManager.SetUnitDead(owningParticipant.units, this); // Set the toolbar image to dead
-            SaveSystem.AddToPlayerStats("deaths", 1);
+            SavedData.GameData.deaths++;
         } else {
             UIManager.SetEnemyObjectiveUnits(owningParticipant.units.Count);
-            SaveSystem.AddToPlayerStats("kills", 1);
+            SavedData.GameData.kills++;
             //owningParticipant.GetComponent<AIController>().SpawnAI();//CHRIS COMMENT THIS OUT
         }
 

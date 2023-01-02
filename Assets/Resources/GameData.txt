@@ -1,10 +1,14 @@
 {
-  "levelsCompleted": 13,
-  "playtime": "",
+  "levelsCompleted": 1,
+  "playtime": 92.4873352,
   "wins": 0,
   "losses": 0,
-  "kills": 0,
+  "kills": 3,
   "deaths": 0,
   "skirmishHighScore": 0,
-  "endlessHighScore": 0
+  "endlessHighScore": 0,
+  "difficulty": 1,
+  "dynamicDifficultyEnabled": true,
+  "hasUnlockedSkirmish": false,
+  "hasUnlockedEndless": false
 }

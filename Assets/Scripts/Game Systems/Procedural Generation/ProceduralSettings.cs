@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Saving;
 
 public class ProceduralSettings : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class ProceduralSettings : MonoBehaviour
 
     private void Start()
     {
-        SaveSystem.dynamicDifficulty = true;
+        SavedData.GameData.dynamicDifficultyEnabled = true;
     }
     public void StartGame()
     {
@@ -182,7 +183,7 @@ public class ProceduralSettings : MonoBehaviour
         {
             button.GetComponent<Image>().color = new Color(0.17f, 0.17f, 0.17f);
         }
-        SaveSystem.dynamicDifficulty = false;
+        SavedData.GameData.dynamicDifficultyEnabled = false;
         switch (modeIndex)
         {
             case 0: aiController.AIDifficulty = Difficulty.Easy;
@@ -194,7 +195,7 @@ public class ProceduralSettings : MonoBehaviour
                 aiController.AIDifficulty = Difficulty.Hard;
                 break;
             case 3:
-                SaveSystem.dynamicDifficulty = true;
+                SavedData.GameData.dynamicDifficultyEnabled = true;
                 break;
         }
 

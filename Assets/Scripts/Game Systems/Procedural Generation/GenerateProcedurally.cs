@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using Saving;
 
 public class GenerateProcedurally : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class GenerateProcedurally : MonoBehaviour
         outpostController = outpostObjective.gameObject.GetComponent<AIOutpostController>();
         if (generateRandomly)
         {
-            SaveSystem.dynamicDifficulty = true;
+            SavedData.GameData.dynamicDifficultyEnabled = true;
             GenerateRandomMap();
         }
     }
