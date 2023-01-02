@@ -7,8 +7,9 @@ namespace Saving
     [System.Serializable]
     public class GameData
     {
+        [Header("Stats")]
         public int levelsCompleted;
-        public string playtime = "";
+        public float playtime;
         public int wins;
         public int losses;
         public int kills;
@@ -16,7 +17,12 @@ namespace Saving
         public int skirmishHighScore;
         public int endlessHighScore;
 
-        bool hasUnlockedSkirmish;
-        bool hasUnlockedEndless;
+        [Header("Difficulty")]
+        public Difficulty difficulty = Difficulty.Easy;
+        public bool dynamicDifficultyEnabled;
+
+        [Header("Unlocks")]
+        public bool hasUnlockedSkirmish;
+        public bool hasUnlockedEndless;
     }
 }

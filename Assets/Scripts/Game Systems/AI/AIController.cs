@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Saving;
 /************************************************************************************************************************
  *****                            F I V E   G U Y S  + +                      G D S 1                               *****
  ************************************************************************************************************************
@@ -253,7 +254,7 @@ public class AIController : AIParticipant
     #region Difficulty & Priority States
     private void UpdateDifficulty(Unit unit)
     {
-        if (SaveSystem.dynamicDifficulty == true)
+        if (SavedData.GameData.dynamicDifficultyEnabled)
         {
             if (GameManager.UpdateAIDifficulty() <= -20)
             {
@@ -285,11 +286,11 @@ public class AIController : AIParticipant
                 allowSnipers = true;
                 Debug.Log("Hard");
             }
-        } else if (SaveSystem.dynamicDifficulty == false)
+        } else if (SavedData.GameData.dynamicDifficultyEnabled)
         {
-            switch (SaveSystem.GetDifficulty())
+            switch (SavedData.GameData.difficulty)
             {
-                case 0: AIDifficulty = Difficulty.Easy;
+                case Difficulty.Easy: AIDifficulty = Difficulty.Easy;
                     allowFocus = true;
                     allowTrickle = true;
                     allowAttack = false;
@@ -297,7 +298,7 @@ public class AIController : AIParticipant
                     allowSnipers = false;
                     Debug.Log("easy");
                     break;
-                case 1: AIDifficulty = Difficulty.Medium;
+                case Difficulty.Medium: AIDifficulty = Difficulty.Medium;
                     allowFocus = true;
                     allowTrickle = false;
                     allowAttack = true;
@@ -305,7 +306,7 @@ public class AIController : AIParticipant
                     allowSnipers = false;
                     Debug.Log("medium");
                     break;
-                case 2: AIDifficulty = Difficulty.Hard;
+                case Difficulty.Hard: AIDifficulty = Difficulty.Hard;
                     allowFocus = true;
                     allowTrickle = false;
                     allowAttack = true;

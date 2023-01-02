@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Saving;
 
 public class Timer : MonoBehaviour
 {
@@ -25,6 +26,6 @@ public class Timer : MonoBehaviour
     public void AddTimeToPlayerStats()
     {
         timerStopped = true;
-        SaveSystem.AddToPlayerStats("playtime", onGoingTime);
+        SavedData.GameData.playtime += onGoingTime;
     }
 }

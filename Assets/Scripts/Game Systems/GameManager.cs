@@ -44,11 +44,11 @@ public class GameManager : MonoBehaviour
         
         // Do the AI & Player scores
 
-        if (SaveSystem.GetPlayerStats("wins") > 0 && SaveSystem.GetPlayerStats("losses") > 0 && SaveSystem.GetPlayerStats("deaths") > 0 && SaveSystem.GetPlayerStats("kills") > 0)
+        if (SavedData.GameData.wins > 0 && SavedData.GameData.losses > 0 && SavedData.GameData.deaths > 0 && SavedData.GameData.kills > 0)
         {
 
-            WinLossRatio = (SaveSystem.GetPlayerStats("wins") / SaveSystem.GetPlayerStats("losses"));
-            KillDeathRatio = (SaveSystem.GetPlayerStats("kills") / SaveSystem.GetPlayerStats("deaths"));
+            WinLossRatio = SavedData.GameData.wins / SavedData.GameData.losses;
+            KillDeathRatio = (SavedData.GameData.kills / SavedData.GameData.deaths);
 
             if(WinLossRatio < 1.5)
             {
