@@ -41,26 +41,30 @@ public class GameManager : MonoBehaviour
         int DifficultyDecider = 0;
         float WinLossRatio;
         float KillDeathRatio;
-        
-        // Do the AI & Player scores
 
+        // Do the AI & Player scores
+        Debug.Log("Before " + DifficultyDecider);
+         
         if (SavedData.GameData.wins > 0 && SavedData.GameData.losses > 0 && SavedData.GameData.deaths > 0 && SavedData.GameData.kills > 0)
         {
 
             WinLossRatio = SavedData.GameData.wins / SavedData.GameData.losses;
             KillDeathRatio = (SavedData.GameData.kills / SavedData.GameData.deaths);
-
-            if(WinLossRatio < 1.5)
+            if (SavedData.GameData.wins + SavedData.GameData.losses > 5)
             {
-                DifficultyDecider -= 10;
-            } else if (WinLossRatio >= 1.5 && WinLossRatio <= 4)
-            {
-                DifficultyDecider += 10;
-            } else if (WinLossRatio > 4)
-            {
-                DifficultyDecider += 20;
+                if (WinLossRatio < 1.5)
+                {
+                    DifficultyDecider -= 20;
+                }
+                else if (WinLossRatio >= 1.5 && WinLossRatio <= 4)
+                {
+                    DifficultyDecider += 10;
+                }
+                else if (WinLossRatio > 4)
+                {
+                    DifficultyDecider += 10;
+                }
             }
-
             if (KillDeathRatio <= 0.5)
             {
                 DifficultyDecider -= 20;
@@ -83,36 +87,40 @@ public class GameManager : MonoBehaviour
 
         //if(AIController.AIUnitScores != 0 && AIController.PlayerUnitScores != 0)
         //{
-        
-            if((AIController.AIUnitScores - AIController.PlayerUnitScores) > 250)
+
+            if ((AIController.AIUnitScores - AIController.PlayerUnitScores) > 250)
+            {
+            DifficultyDecider -= -50;
+            }
+            else if ((AIController.AIUnitScores - AIController.PlayerUnitScores) <= 249 && (AIController.AIUnitScores - AIController.PlayerUnitScores) <= 200)
             {
                 DifficultyDecider -= 10;
             } 
-            else if ((AIController.AIUnitScores - AIController.PlayerUnitScores) <= 250 && (AIController.AIUnitScores - AIController.PlayerUnitScores) <= -100)
+            else if ((AIController.AIUnitScores - AIController.PlayerUnitScores) <= 200 && (AIController.AIUnitScores - AIController.PlayerUnitScores) <= -100)
             {
-                DifficultyDecider += 20;
+                DifficultyDecider += 10;
             }
             else if ((AIController.AIUnitScores - AIController.PlayerUnitScores) <= -101)
             {
-                DifficultyDecider += 30;
+                DifficultyDecider += 20;
             }
-            //Debug.Log(DifficultyDecider);
-        
-        //}
 
+
+        //}
+        Debug.Log("After " + DifficultyDecider);
         return DifficultyDecider;
     }
 
     void Update(){
-        if (Input.GetKeyDown(KeyCode.F)) { Debug.Log(gameMode); }
-        /*if (Input.GetKeyDown(KeyCode.M))
+        //if (Input.GetKeyDown(KeyCode.F)) { Debug.Log(gameMode); }
+        if (Input.GetKeyDown(KeyCode.M))
         {
             //SaveSystem.PrintLoadedVariables();
             Debug.Log("AI Score = " + AIController.AIUnitScores);
             Debug.Log("Player Score = " + AIController.PlayerUnitScores);
-            Debug.Log("DifficultyDecier = " + UpdateAIDifficulty());
-            Debug.Log("Stats = " + SaveSystem.loadedPlayerStats);
-        }*/
+            Debug.Log("Losses = " + SavedData.GameData.losses);
+            Debug.Log("Wins = " + SavedData.GameData.wins);
+        }
     }
 
     //Game States

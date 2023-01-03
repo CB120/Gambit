@@ -176,8 +176,7 @@ public class AIController : AIParticipant
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F)){ Debug.Log(SaveSystem.dynamicDifficulty); }
-        if (Input.GetKeyDown(KeyCode.F)){ Debug.LogError(AIDifficulty); Debug.Log(ParticipantManager.GetCurrentParticipant()); }
+        //if (Input.GetKeyDown(KeyCode.F)){ Debug.LogError(AIDifficulty); Debug.Log(ParticipantManager.GetCurrentParticipant()); }
         if (usingProcGen) return;
         if (!lateStartRun)
         {
@@ -256,7 +255,9 @@ public class AIController : AIParticipant
     {
         if (SavedData.GameData.dynamicDifficultyEnabled)
         {
-            if (GameManager.UpdateAIDifficulty() <= -20)
+            Debug.Log("ON");
+            Debug.Log(GameManager.UpdateAIDifficulty());
+            if (GameManager.UpdateAIDifficulty() <= -10)
             {
                 AIDifficulty = Difficulty.Easy;
                 allowFocus = true;
@@ -266,7 +267,7 @@ public class AIController : AIParticipant
                 allowSnipers = false;
                 Debug.Log("easy");
             }
-            else if (GameManager.UpdateAIDifficulty() > -20 && GameManager.UpdateAIDifficulty() <= 10)
+            else if (GameManager.UpdateAIDifficulty() > -10 && GameManager.UpdateAIDifficulty() <= 10)
             {
                 AIDifficulty = Difficulty.Medium;
                 allowFocus = true;
@@ -316,12 +317,6 @@ public class AIController : AIParticipant
                     break;
                 default: Debug.Log("ERROR: SaveSystem.GetDifficulty() returned null"); break;
             }
-        }
-
-        if (TutorialLevel == true)
-        {
-            AIDifficulty = Difficulty.Tutorial;
-            Debug.Log("Tutorial");
         }
 
         // Use game statistics to change the difficulty on the fly. The way i want to do this is to either store it on the players save file (things like enemies killed, units lost, wins & losses) or
@@ -501,7 +496,7 @@ public class AIController : AIParticipant
                     {
                         if (c.currentUnit == u && c.isForest == false)
                         {
-                            Debug.Log(u);
+                            //Debug.Log(u);
                             playerInRange = c;
                         }
                     }
@@ -538,7 +533,7 @@ public class AIController : AIParticipant
         }
         if (playerInRange != null)
         {
-            Debug.Log("Player Unit : " + playerInRange + " Is in range");
+            //Debug.Log("Player Unit : " + playerInRange + " Is in range");
         }
         return playerInRange;
     }
@@ -751,8 +746,11 @@ public class AIController : AIParticipant
                     break;
             }
         }
-        //Debug.Log(PlayerUnitScores);
-        //Debug.Log(AIUnitScores);
+        if (debugOn)
+        {
+            Debug.Log("Player " + PlayerUnitScores);
+            Debug.Log("AI " + AIUnitScores);
+        }
     }
 
     private Unit FindClosestTarget(Unit unit)
@@ -805,7 +803,7 @@ public class AIController : AIParticipant
     {
         if (units.Count == 0 && GameManager.gameMode == GameMode.Catapult)
         {
-            Debug.Log("There are no more units");
+            //Debug.Log("There are no more units");
             base.StartTurn();
             if (OutpostController != null)
             {
@@ -822,13 +820,13 @@ public class AIController : AIParticipant
             if (OutpostController != null)
             {
                 GetAIOutpost(OutpostController).spawnRate = 2;
-                Debug.Log("Spawn Rate Changed");
+                //Debug.Log("Spawn Rate Changed");
             }
             return;
         }
         else if (units.Count == 0 && GameManager.gameMode == GameMode.Outposts)
         {
-            Debug.Log("There are no more units");
+            //Debug.Log("There are no more units");
             base.StartTurn();
             if (OutpostController != null)
             {
@@ -840,7 +838,7 @@ public class AIController : AIParticipant
                 if (GetAIOutpost(OutpostController).spawnRate != 2)
                 {
                     GetAIOutpost(OutpostController).spawnRate = 2;
-                    Debug.Log("Spawn Rate Changed");
+                    //Debug.Log("Spawn Rate Changed");
                 }
             }
             return;
@@ -851,12 +849,12 @@ public class AIController : AIParticipant
                 base.StartTurn();                                                                                  // Starts the AI's turn, enabled AI movement.;
                 UIManager.ToggleFastForward(true);
                 moveCounter++;
+                GetPlayerUnits();
                 UpdateUnitScores();
                 if (OutpostController != null)
                 {
                     GetAIOutpost(OutpostController).OutpostTurn();
                 }
-                GetPlayerUnits();
                 if (ForestLevel == true && checkedForests == false)                                                // Make sure not all players are in forests
                 {
                     foreach (Unit player in PlayerUnits)
@@ -944,7 +942,7 @@ public class AIController : AIParticipant
             // Same cell movement logic
             if (GetAIPropertiesOfUnit(units[AIUnitCounter]).sameCell == units[AIUnitCounter].currentCell)
             {
-                Debug.Log(units[AIUnitCounter] + " Was in the same cell");
+                if (debugOn) { Debug.Log(units[AIUnitCounter] + " Was in the same cell"); }
                 MoveSameCell(units[AIUnitCounter]);
             }
 
@@ -1048,7 +1046,7 @@ public class AIController : AIParticipant
                         if (possiblePaths.Length != 0 && possiblePaths != null)
                         {
                             Path = unit.currentCell.GetPathTo(possiblePaths[Random.Range(0, possiblePaths.Length)]);
-                            Debug.Log("Selecting a mountain path" + Path.Length);
+                            //Debug.Log("Selecting a mountain path" + Path.Length);
                         }
                         else
                         {
@@ -1074,12 +1072,12 @@ public class AIController : AIParticipant
                 case AIProperties.PriorityType.Invalid:
                     unit.currentCell.GetPathTo(PlayerUnits[RandomUnit].currentCell);
                     Path = unit.currentCell.GetPathTo(PlayerUnits[RandomUnit].currentCell);
-                    Debug.Log("Something went wrong with the AIProperties Priority type");
+                    Debug.LogError("Something went wrong with the AIProperties Priority type");
                     break;
                 default:
                     unit.currentCell.GetPathTo(PlayerUnits[RandomUnit].currentCell);
                     Path = unit.currentCell.GetPathTo(PlayerUnits[RandomUnit].currentCell);
-                    Debug.Log("Something went wrong with the AIProperties Priority type");
+                    Debug.LogError("Something went wrong with the AIProperties Priority type");
                     break;
             }
             if (Path != null)
@@ -1089,12 +1087,12 @@ public class AIController : AIParticipant
                     if (Path.Length > (unit.movementRange - moveDistance))                                    // Check if the path distance is less than the possible movement range so that it doesn't overshoot the movement and jump out of array length
                     {
                         Destination = Path[unit.movementRange - moveDistance];
-                        Debug.Log("The first statement is firing");
+                        //Debug.Log("The first statement is firing");
                     }
                     else if (Path.Length > unit.movementRange)
                     {
                         Destination = Path[unit.movementRange - 1];
-                        Debug.Log("Path is greater than movement range");
+                        //Debug.Log("Path is greater than movement range");
                     }
                     else
                     {
@@ -1113,7 +1111,7 @@ public class AIController : AIParticipant
             else if (GetPriorityState(unit) != AIProperties.PriorityType.Snipe)
             {
                 GetAIPropertiesOfUnit(unit).targetUnit = FindClosestTarget(unit);
-                Debug.Log("Re-trying move!");
+                //Debug.Log("Re-trying move!");
                 Move(unit);
             }
         }
@@ -1145,7 +1143,7 @@ public class AIController : AIParticipant
             else
             {
                 MoveAdjacent(unit);
-                Debug.Log("Something is set to null");
+                Debug.LogError("Something is set to null");
             }
         }
         else
@@ -1220,7 +1218,7 @@ public class AIController : AIParticipant
 
         if (Catapult.currentCell == castleAI.castleCell || Path.Length <= 4)
         {
-            Debug.Log("Attack Time");
+            //Debug.Log("Attack Time");
             Destination = null;
             CatapultAttack(CatapultUnit);                                       // If you're within range of the castle, start attacking it
         }
@@ -1259,7 +1257,7 @@ public class AIController : AIParticipant
                 GetAIPropertiesOfUnit(unit).targetUnit = FindClosestTarget(unit);
                 if (GetAIPropertiesOfUnit(unit).targetUnit != null)
                 {
-                Debug.Log(GetAIPropertiesOfUnit(unit).targetUnit);
+                //Debug.Log(GetAIPropertiesOfUnit(unit).targetUnit);
                 Cell[] Adjacent = GetAIPropertiesOfUnit(unit).targetUnit.currentCell.GetAdjacentCells();
                 Cell MoveOneCell = Adjacent[Random.Range(0, Adjacent.Length)];
                 MoveUnit(unit, MoveOneCell);
@@ -1273,7 +1271,7 @@ public class AIController : AIParticipant
         }
         else
         {
-            Debug.Log("The " + unit + " Could not find anything close to him that he could move to");
+            //Debug.Log("The " + unit + " Could not find anything close to him that he could move to");
             MoveAdjacent(unit);
             //GetAIPropertiesOfUnit(unit).targetUnit = PlayerUnits[Random.Range(0, PlayerUnits.Count)];
             //Move(unit);
