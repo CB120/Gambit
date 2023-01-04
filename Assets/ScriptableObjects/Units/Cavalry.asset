@@ -17,7 +17,7 @@ MonoBehaviour:
   unitDescription: cavalry units are able to<color=#FF8600> move significantly further</color>
     than other units
   health: 8
-  damage: 4
+  damage: 3
   range: 3
-  movementRange: 15
+  movementRange: 14
   icon: {fileID: 21300000, guid: 81a7d410ee8b25643b02e6ebca9f0076, type: 3}
