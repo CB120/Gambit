@@ -70,6 +70,7 @@ public class GridGenerator : MonoBehaviour
 
         for(int i = 2; i < MapGenerator.globalRegions.Length; i++)//determine the elevation
         {
+            Debug.LogError(mapValue + " " + MapGenerator.globalRegions[i].height);
             if(mapValue < MapGenerator.globalRegions[i].height)
             {
                 return i - 1;

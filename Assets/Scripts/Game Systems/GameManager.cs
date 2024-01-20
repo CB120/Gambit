@@ -6,7 +6,8 @@ public enum GameMode
 {
     DefeatAll,
     Catapult,
-    Outposts
+    Outposts,
+    KingsCastle
 }
 public class GameManager : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
         float KillDeathRatio;
 
         // Do the AI & Player scores
-        Debug.Log("Before " + DifficultyDecider);
+        //Debug.Log("Before " + DifficultyDecider);
          
         if (SavedData.GameData.wins > 0 && SavedData.GameData.losses > 0 && SavedData.GameData.deaths > 0 && SavedData.GameData.kills > 0)
         {
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour
 
 
         //}
-        Debug.Log("After " + DifficultyDecider);
+        //Debug.Log("After " + DifficultyDecider);
         return DifficultyDecider;
     }
 

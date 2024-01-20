@@ -94,7 +94,7 @@ public class GridController : MonoBehaviour
             }
         }
 
-        SetForestCells(mapGenerator.forestCoordinatesInternal);
+        //SetForestCells(mapGenerator.forestCoordinatesInternal);
     }
 
     void Start(){
@@ -213,7 +213,7 @@ public class GridController : MonoBehaviour
             // Run leaving code on the cell we're coming from
             if (c.currentUnit && !c.isForest){
                 if (c.currentUnit.isAIControlled){
-                    Unit.SetLayerRecursively(c.currentUnit.gameObject, 11, true);
+                    Unit.SetLayerRecursively(c.currentUnit.gameObject, 11, true);  
                 } else {
                     Unit.SetLayerRecursively(c.currentUnit.gameObject, 10, true);
                 }

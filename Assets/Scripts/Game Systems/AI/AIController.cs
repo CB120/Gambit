@@ -91,7 +91,8 @@ public class AIController : AIParticipant
     [Header("Difficulty")]
     public Difficulty AIDifficulty;
     public bool TutorialLevel = false;
-    //public bool DynamicDifficulty = true;
+    public bool BossLevel = false;
+    [SerializeField] private BossController bossController;
 
     // Patrol related variables
     [Header("Patrol settings -- STILL IN DEVELOPMENT DO NOT USE")]
@@ -168,6 +169,11 @@ public class AIController : AIParticipant
                 cell = Cell.GetComponent<Cell>();
                 PatrolPath.Add(cell);
             }
+        }
+
+        if(BossLevel == true)
+        {
+            bossController = GetComponent<BossController>();
         }
         UIManager.SetEnemyObjectiveUnits(units.Count);
         lateStartRun = true;                                           // Once start has run, tick it off
@@ -255,7 +261,7 @@ public class AIController : AIParticipant
     {
         if (SavedData.GameData.dynamicDifficultyEnabled)
         {
-            Debug.Log("ON");
+            //Debug.Log("ON");
             Debug.Log(GameManager.UpdateAIDifficulty());
             if (GameManager.UpdateAIDifficulty() <= -10)
             {
@@ -716,6 +722,9 @@ public class AIController : AIParticipant
                 case Unit.UnitType.Cavalry:
                     AIUnitScores += 250;
                     break;
+                case Unit.UnitType.King:
+                    AIUnitScores += 500;
+                    break;
                 default:
                     Debug.Log("Something broke with the AI's unit score");
                     break;
@@ -842,6 +851,11 @@ public class AIController : AIParticipant
                 }
             }
             return;
+        }
+        if(BossLevel == true)
+        {
+            bossController.remainingUnits = units.Count;
+            bossController.activateKing(units.Count, units);
         }
         if (units.Count > 0)
         {
